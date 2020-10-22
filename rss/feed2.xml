@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>UBS Insights</title>
+    <link>https://www.ubs.com/global/en/asset-management/insights.html</link>
+    <description>Bringing you the best of our market views and asset class insights</description>
+     
+        <item>
+          <title>When will inflation return?</title>
+          <link>https://www.ubs.com/global/en/asset-management/insights/asset-class-research/fixed-income-research/2020/when-will-inflation-return.html?campID=CAAS-ActivityStream</link>
+          <media:thumbnail url='https://www.ubs.com/global/en/asset-management/insights/asset-class-research/fixed-income-research/2020/when-will-inflation-return/_jcr_content/pagehead/mainimage.1770433144.jpeg'/> 
+          <description>As policymakers embark on an even more aggressive quest to loosen financial conditions and inject record amounts of liquidity to counteract the effects of the pandemic, will investors see inflation return in the near term?</description>
+          <pubDate>21 Oct 2020 16:05:00 +0000</pubDate>
+        </item>
+     
+        <item>
+          <title>A twist of FAIT</title>
+          <link>https://www.ubs.com/global/en/asset-management/insights/asset-class-research/fixed-income-research/2020/bond-bites-oct-2020.html?campID=CAAS-ActivityStream</link>
+          <media:thumbnail url='https://www.ubs.com/global/en/asset-management/insights/asset-class-research/fixed-income-research/2020/bond-bites-oct-2020/_jcr_content/pagehead/mainimage.1905572799.jpeg' />
+          <description>Changes to monetary policy frameworks are rare and significant events. So what could be the impact of the Fed’s view on employment and the new Flexible Average Inflation Targeting (FAIT)?</description>
+          <pubDate>19 Oct 2020 16:05:00 +0000</pubDate>
+        </item>
+
+        <item>
+          <title>Navigating through uncertain economic times</title>
+          <link>https://www.ubs.com/global/en/asset-management/insights/asset-class-research/fixed-income-research/2020/navigating-through-uncertain-economic-times.html?campID=CAAS-ActivityStream</link>
+          <media:thumbnail url='https://www.ubs.com/global/en/asset-management/insights/asset-class-research/fixed-income-research/2020/navigating-through-uncertain-economic-times/_jcr_content/pagehead/mainimage.730787173.jpeg' />
+          <description>Kevin Zhao explains how flexible the UBS flexible bond strategies really are using market examples of where flexibility was essential in managing the portfolio effectively.</description>
+          <pubDate>15 Oct 2020 16:05:00 +0000</pubDate>
+        </item>
+
+  </channel>
+</rss>
