@@ -87,32 +87,17 @@
 
 			AFRAME.registerComponent('video', {
 	            init: function () {
-	            	this.toggle = false;
-	            	document.querySelector("#video").pause();
-	            },
-	            tick:function(){  
-	            	if(document.querySelector("a-marker").object3D.visible == true){
-		            	if(!this.toggle){
-			            	this.toggle = true;
-			            	document.querySelector("#video").play();
-			            }
-		            }else{
-		            	this.toggle = false;
-		            	document.querySelector("#video").pause();
-	            	}
+	            	document.querySelector("#videoPanel").addEventListener('click', async function () {
+                		if(!this.toggle){
+	            			this.toggle = true;
+	            			document.querySelector("#video").play();
+	           			} else {
+	            			this.toggle = false;
+	            			document.querySelector("#video").pause();
+        				}	
+	  				})
 	  			}
 			});
-			
-		document.querySelector("videoPanel").addEventListener('click', async function () {
-	                    if(!this.toggle){
-			            	this.toggle = true;
-			            	document.querySelector("#video").play();
-			            }
-		            else{
-		            	this.toggle = false;
-		            	document.querySelector("#video").pause();
-	            	}
-	                });
 			
 		</script>
 	</head>
