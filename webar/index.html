@@ -110,7 +110,7 @@
 			<a-assets>
 				<img id="feature" src="/webar/assets/image001.jpeg" crossorigin="anonymous">
 				<img id="research" src="/webar/assets/image002.jpeg" crossorigin="anonymous">
-				<video id="video" src="/webar/assets/video01.mp4" crossorigin></video>
+				<video id="video" src="/webar/assets/video01.mp4" autoplay loop="true" crossorigin webkit-playsinline playsinline controls></video>
 			</a-assets>
 			<a-entity camera>
 				<a-marker type='pattern' url='/webar/pattern-happy.patt' emitevents='true' cursor='rayOrigin: mouse'>
@@ -120,7 +120,7 @@
 					<!-- Video -->
 					<a-plane color="black" rotation="-90 0 0" position="-1.6 -1.1 -3.6" width="3" height="0.5" material="transparent: true; opacity: 0.90"></a-plane>
 					<a-text value="Featured Video" color="white" rotation="-90 0 0" position="-2.25 -1 -3.55" scale="1 1 1"></a-text>
-					<a-video video rotation="-90 0 0" src="#video" width="3" height="1.6" position="-1.6 -1 -2.4" webkit-playsinline playsinline controls></a-video>
+					<a-video video rotation="-90 0 0" src="#video" width="3" height="1.6" position="-1.6 -1 -2.4"></a-video>
 
 					<!-- Research -->
 					<a-plane color="black" rotation="-90 0 0" position="-1.6 -1.1 -1.25" width="3" height="0.5" material="transparent: true; opacity: 0.90"></a-plane>
@@ -163,25 +163,32 @@
 				</a-marker>
 	    	</entity>
 	  	</a-scene>
-	</body>
-	<script>
-	    // Get the User Preferences
-	    async function getPrefs(userID) {
-	        // We cannot call to the Admin System so we will call to a static set of parameters instead
-	        //const id_url = 'http://willnnotdan.github.io/team57/arsite/?userID='+userID;
-	        const id_url = '/webar/params/params.json';
-	        const res = await getUser(id_url);
-	        // update the Assets
-	        //document.getElementById("video").setAttribute("src", res.videos[2]);
-	        document.getElementById("feature").setAttribute("src", res.images[0]);
-	        document.getElementById("research").setAttribute("src", res.images[1]);
-	        document.getElementById("emailPlane").addEventListener('click', () => {
-	            window.open("mailto:" + res.user.email, '_blank');
-	        });
+	  	<script>
+			// Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+			const sceneEl = document.querySelector('a-scene');
+			sceneEl.addEventListener('loaded', () => {
+			    sceneEl.camera = new THREE.PerspectiveCamera();
+			});
+		</script>
+		<script>
+		    // Get the User Preferences
+		    async function getPrefs(userID) {
+		        // We cannot call to the Admin System so we will call to a static set of parameters instead
+		        //const id_url = 'http://willnnotdan.github.io/team57/arsite/?userID='+userID;
+		        const id_url = '/webar/params/params.json';
+		        const res = await getUser(id_url);
+		        // update the Assets
+		        //document.getElementById("video").setAttribute("src", res.videos[2]);
+		        document.getElementById("feature").setAttribute("src", res.images[0]);
+		        document.getElementById("research").setAttribute("src", res.images[1]);
+		        document.getElementById("emailPlane").addEventListener('click', () => {
+		            window.open("mailto:" + res.user.email, '_blank');
+		        });
 
-	        var feed = res.rss[0];
-	        buildStories(feed);
-	    }
-	    getPrefs(userID); // Uncomment this when URL available
-	</script>
+		        var feed = res.rss[0];
+		        buildStories(feed);
+		    }
+		    getPrefs(userID); // Uncomment this when URL available
+		</script>
+	</body>
 </html>
