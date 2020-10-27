@@ -103,6 +103,17 @@
 	  			}
 			});
 			
+		document.querySelector("videoPanel").addEventListener('click', async function () {
+	                    if(!this.toggle){
+			            	this.toggle = true;
+			            	document.querySelector("#video").play();
+			            }
+		            else{
+		            	this.toggle = false;
+		            	document.querySelector("#video").pause();
+	            	}
+	                });
+			
 		</script>
 	</head>
 	<body style='margin : 0px; overflow: scroll;'>
@@ -110,7 +121,7 @@
 			<a-assets>
 				<img id="feature" src="/webar/assets/image001.jpeg" crossorigin="anonymous">
 				<img id="research" src="/webar/assets/image002.jpeg" crossorigin="anonymous">
-				<video id="video" src="/webar/assets/video01.mp4" autoplay loop="true" crossorigin webkit-playsinline playsinline controls></video>
+				<video id="video" src="/webar/assets/video01.mp4" loop="true" crossorigin webkit-playsinline playsinline controls></video>
 			</a-assets>
 			<a-entity camera>
 				<a-marker type='pattern' url='/webar/pattern-happy.patt' emitevents='true' cursor='rayOrigin: mouse'>
@@ -120,7 +131,7 @@
 					<!-- Video -->
 					<a-plane color="black" rotation="-90 0 0" position="-1.6 -1.1 -3.6" width="3" height="0.5" material="transparent: true; opacity: 0.90"></a-plane>
 					<a-text value="Featured Video" color="white" rotation="-90 0 0" position="-2.25 -1 -3.55" scale="1 1 1"></a-text>
-					<a-video video rotation="-90 0 0" src="#video" width="3" height="1.6" position="-1.6 -1 -2.4"></a-video>
+					<a-video id="videoPanel" video rotation="-90 0 0" src="#video" width="3" height="1.6" position="-1.6 -1 -2.4"></a-video>
 
 					<!-- Research -->
 					<a-plane color="black" rotation="-90 0 0" position="-1.6 -1.1 -1.25" width="3" height="0.5" material="transparent: true; opacity: 0.90"></a-plane>
