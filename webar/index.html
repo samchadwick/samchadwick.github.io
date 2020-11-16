@@ -208,10 +208,12 @@
 
         marker.childNodes.forEach(child => {
             console.log(child);
-            console.log(child.getAttribute('rotation'));
-           if (child.getAttribute('rotation') && child.getAttribute('rotation').includes('-90')) {
-               console.log(child.getAttribute('rotation').replace('-90', '0'));
-           }
+            if (child.hasAttributes) {
+                console.log(child.getAttribute('rotation'));
+                if (child.getAttribute('rotation') && child.getAttribute('rotation').includes('-90')) {
+                    console.log(child.getAttribute('rotation').replace('-90', '0'));
+                }
+            }
         });
 
         original.parentNode.insertBefore(marker, original);
