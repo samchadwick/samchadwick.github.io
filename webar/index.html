@@ -204,7 +204,7 @@
         const original = document.getElementById('marker');
         let marker = original.cloneNode(true);
         marker.id = "marker2";
-        marker.url = patternFile;
+        marker.setAttribute("url", patternFile);
         original.parentNode.insertBefore(marker, original);
         console.log(document.getElementById('marker').parentNode);
     }
