@@ -205,6 +205,13 @@
         let marker = original.cloneNode(true);
         marker.id = "marker2";
         marker.setAttribute("url", patternFile);
+
+        marker.childNodes.forEach(child => {
+           if (child.rotation && child.rotation.includes('-90')) {
+               child.rotation.replace('-90', '0');
+           }
+        });
+
         original.parentNode.insertBefore(marker, original);
         console.log(document.getElementById('marker').parentNode);
     }
