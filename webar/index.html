@@ -12,6 +12,7 @@
         const userID = urlParams.get('userId');
         const patternFile = '/webar/params/' + userID + '.patt';
         document.getElementById('marker').url = patternFile;
+        console.log(document.getElementById('marker').url);
 
         async function getUser(source) {
             let r = fetch(source)
