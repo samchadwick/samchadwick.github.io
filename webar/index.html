@@ -9,7 +9,9 @@
         // Get the URL parameter to identify the individual
         // Let's assume that the parameter is passed as the variable userID via GET in the URL, so we only need one ARsite
         const urlParams = new URLSearchParams(window.location.search);
-        const userID = urlParams.get('userID');
+        const userID = urlParams.get('userId');
+        const patternFile = '/webar/params/' + userID + '.patt';
+        document.getElementById('marker').url = patternFile;
 
         async function getUser(source) {
             let r = fetch(source)
@@ -105,7 +107,7 @@
     </script>
 </head>
 <body style='margin : 0px; overflow: scroll;'>
-<a-scene embedded arjs='patternRatio: 0.69; debugUIEnabled: false;'>
+<a-scene embedded arjs='patternRatio: 0.75; debugUIEnabled: false;'>
     <a-assets>
         <img id="feature" src="/webar/assets/image001.jpeg" crossorigin="anonymous">
         <img id="research" src="/webar/assets/image002.jpeg" crossorigin="anonymous">
@@ -113,8 +115,8 @@
                controls></video>
     </a-assets>
     <a-entity camera>
-        <a-marker type='pattern' url='/webar/pattern-happy.patt' emitevents='true' cursor='rayOrigin: mouse'>
-
+        <a-marker type='pattern' url='/webar/pattern-happy.patt' id='marker' emitevents='true'
+                  cursor='rayOrigin: mouse'>
             <!-- Left Column -->
 
             <!-- Video -->
@@ -200,7 +202,10 @@
     async function getPrefs(userID) {
         // We cannot call to the Admin System so we will call to a static set of parameters instead
         // const id_url = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/willnnotdan/team57/master/arsite/dummy-params.json';
-        const id_url = '/webar/params/params.json';
+        let id_url = '/webar/params/' + userID + '.json';
+        if (!userID) {
+            id_url = '/webar/params/params.json';
+        }
         const res = await getUser(id_url);
         // update the Assets
         document.getElementById("video").setAttribute("src", res.videos[2]);
