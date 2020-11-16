@@ -206,16 +206,6 @@
         marker.id = "marker2";
         marker.setAttribute("url", patternFile);
 
-        marker.childNodes.forEach(child => {
-            console.log(child);
-            if (child.hasAttributes) {
-                if (child.getAttribute('rotation')) {
-                    const rotation = child.getAttribute('rotation');
-                    child.setAttribute('rotation', rotation);
-                }
-            }
-        });
-
         original.parentNode.insertBefore(marker, original);
         console.log(document.getElementById('marker').parentNode);
     }
