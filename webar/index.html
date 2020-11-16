@@ -11,8 +11,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const userID = urlParams.get('userId');
         const patternFile = '/webar/params/' + userID + '.patt';
-        document.getElementById('marker').url = patternFile;
-        console.log(document.getElementById('marker').url);
 
         async function getUser(source) {
             let r = fetch(source)
@@ -199,6 +197,9 @@
     // });
 </script>
 <script>
+    document.getElementById('marker').url = patternFile;
+    console.log(document.getElementById('marker').url);
+
     // Get the User Preferences
     async function getPrefs(userID) {
         // We cannot call to the Admin System so we will call to a static set of parameters instead
