@@ -201,7 +201,9 @@
 </script>
 <script>
     if (patternFile) {
-        document.getElementById('marker').url = patternFile;
+        let marker = document.getElementById('marker');
+        marker.url = patternFile;
+        marker.parentNode.appendChild(marker);
         console.log(document.getElementById('marker').url);
     }
 
