@@ -210,6 +210,7 @@
             console.log(child);
             if (child.hasAttributes) {
                 console.log(child.getAttribute('rotation'));
+                console.log(child.rotation);
                 if (child.getAttribute('rotation') && child.getAttribute('rotation').includes('-90')) {
                     console.log(child.getAttribute('rotation').replace('-90', '0'));
                 }
