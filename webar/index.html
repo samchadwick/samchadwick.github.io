@@ -201,10 +201,12 @@
 </script>
 <script>
     if (patternFile) {
-        let marker = document.getElementById('marker');
+        const original = document.getElementById('marker');
+        let marker = original.cloneNode(true);
+        marker.id = "marker2";
         marker.url = patternFile;
-        marker.parentNode.appendChild(marker);
-        console.log(document.getElementById('marker').url);
+        original.parentNode.insertBefore(original, marker);
+        console.log(document.getElementById('marker').parentNode);
     }
 
     // Get the User Preferences
