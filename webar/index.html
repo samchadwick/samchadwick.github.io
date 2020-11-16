@@ -208,9 +208,9 @@
 
         marker.childNodes.forEach(child => {
             console.log(child);
-            console.log(child.rotation);
-           if (child.rotation && child.rotation.includes('-90')) {
-               console.log(child.rotation.replace('-90', '0'));
+            console.log(child.getAttribute('rotation'));
+           if (child.getAttribute('rotation') && child.getAttribute('rotation').includes('-90')) {
+               console.log(child.getAttribute('rotation').replace('-90', '0'));
            }
         });
 
