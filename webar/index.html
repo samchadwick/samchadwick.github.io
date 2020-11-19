@@ -26,7 +26,7 @@
 
         // Get the Feed
         async function getFeed(source) {
-            let r = fetch("https://cors-anywhere.herokuapp.com/" + source, {
+            let r = fetch(source, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Headers": "*"
