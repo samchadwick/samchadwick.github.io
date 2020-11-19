@@ -220,21 +220,23 @@
         }
         const res = await getUser(id_url);
 
-        console.log(res.articles);
         fetch(res.articles[0]).then(resp => {
             resp.json().then(result => {
-                console.log(result);
+                document.getElementById("article1Title").setAttribute("value", result.heading);
+                document.getElementById("article1Text").setAttribute("value", result.text);
+                document.getElementById("research").setAttribute("src", result.image);
             });
         }).catch(err => {});
+
         fetch(res.articles[1]).then(resp => {
             resp.json().then(result => {
-                console.log(result);
+                document.getElementById("article2Title").setAttribute("value", result.heading);
+                document.getElementById("article2Text").setAttribute("value", result.text);
+                document.getElementById("feature").setAttribute("src", result.image);
             });
         }).catch(err => {});
         // update the Assets
-        document.getElementById("video").setAttribute("src", res.videos[2]);
-        document.getElementById("feature").setAttribute("src", res.images[0]);
-        document.getElementById("research").setAttribute("src", res.images[1]);
+        document.getElementById("video").setAttribute("src", res.videos[0]);
         document.getElementById("emailPlane").addEventListener('click', () => {
             window.open("mailto:" + res.user.email, '_blank');
         });
