@@ -219,6 +219,18 @@
             id_url = '/webar/params/params.json';
         }
         const res = await getUser(id_url);
+
+        console.log(res.articles);
+        fetch(res.articles[0]).then(resp => {
+            resp.json().then(result => {
+                console.log(result);
+            });
+        }).catch(err => {});
+        fetch(res.articles[1]).then(resp => {
+            resp.json().then(result => {
+                console.log(result);
+            });
+        }).catch(err => {});
         // update the Assets
         document.getElementById("video").setAttribute("src", res.videos[2]);
         document.getElementById("feature").setAttribute("src", res.images[0]);
