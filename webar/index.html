@@ -224,7 +224,7 @@
             resp.json().then(result => {
                 document.getElementById("article1Title").setAttribute("value", result.heading);
                 document.getElementById("article1Text").setAttribute("value", result.text);
-                document.getElementById("research").setAttribute("src", "https://cors-anywhere.herokuapp.com/" + result.image);
+                document.getElementById("research").setAttribute("src", result.image);
             });
         }).catch(err => {});
 
@@ -232,11 +232,11 @@
             resp.json().then(result => {
                 document.getElementById("article2Title").setAttribute("value", result.heading);
                 document.getElementById("article2Text").setAttribute("value", result.text);
-                document.getElementById("feature").setAttribute("src", "https://cors-anywhere.herokuapp.com/" + result.image);
+                document.getElementById("feature").setAttribute("src", result.image);
             });
         }).catch(err => {});
         // update the Assets
-        document.getElementById("video").setAttribute("src", "https://cors-anywhere.herokuapp.com/" + res.videos[0]);
+        document.getElementById("video").setAttribute("src", res.videos[0]);
         document.getElementById("emailPlane").addEventListener('click', () => {
             window.open("mailto:" + res.user.email, '_blank');
         });
