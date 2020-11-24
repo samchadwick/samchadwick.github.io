@@ -187,6 +187,12 @@
             <a-text item5 id="item5" value="" color="black" rotation="-90 1.6 0" position="0.25 -1 2.6"
                     scale="0.5 0.5 0.5"></a-text>
 
+
+            <a-plane id="website" color="white" rotation="-90 0 0" position="-2.25 -1.1 3.2" width="7" height="0.5"
+                     material="transparent: true; opacity: 0.90"></a-plane>
+            <a-text item5 id="websiteName" value="" color="black" rotation="-90 0 0" position="-2.75 -1 3.2"
+                    scale="0.5 0.5 0.5"></a-text>
+
             <!-- End Right Column -->
 
         </a-marker>
@@ -240,6 +246,12 @@
         document.getElementById("emailPlane").addEventListener('click', () => {
             window.open("mailto:" + res.user.email, '_blank');
         });
+
+        document.getElementById("website").addEventListener('click', () => {
+            window.open(res.website);
+        });
+
+        document.getElementById("websiteName").setAttribute("value", res.websiteName);
 
         var feed = res.rss[0];
         buildStories(feed);
