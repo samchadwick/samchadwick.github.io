@@ -225,6 +225,7 @@
             id_url = '/webar/params/params.json';
         }
         const res = await getUser(id_url);
+        console.log(res);
 
         fetch(res.articles[0]).then(resp => {
             resp.json().then(result => {
