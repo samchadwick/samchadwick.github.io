@@ -10,14 +10,16 @@
     <a-entity camera>
         <a-marker type='pattern' url='/webar/pattern-happy.patt' id='marker' emitevents='true'
                   cursor='rayOrigin: mouse'>
-            <a-box src="" id="Cube_0" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0.283 0.32 0" rotation="0 0 0" color="#FFFFFF" transparent=False
-            animation__cube_0_f0="property: position;  to: 0 0.32 0; dur: 0; easing: linear; "
-            animation__cube_0_f0="property: rotation;  to: 0 0 0; dur: 0; easing: linear; "
-            animation__cube_0_f0="property: width;  to: 0.1; dur: 0; easing: linear; "
-            animation__cube_0_f0="property: height;  to: 0.1; dur: 0; easing: linear; "
-            animation__cube_0_f0="property: depth;  to: 0.1; dur: 0; easing: linear; "
-            animation__cube_0_f1="property: position; from: 0 0.32 0; to: -0.435 0.32 0; dur: 60000; easing: linear; startEvents: animationcomplete__cube_0_f0;"
-            animation__cube_0_f2="property: position; from: -0.435 0.32 0; to: 0.283 0.32 0; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f1;"
+            <a-box src="" id="Cube_0" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0.271 0.32 -0.261" rotation="0 0 0" color="#FFFFFF" transparent=False
+                animation__cube_0_f0="property: position;  to: 0.283 0.32 0; dur: 1000; easing: linear; "
+                animation__cube_0_f0="property: rotation;  to: 0 0 0; dur: 1000; easing: linear; "
+                animation__cube_0_f0="property: width;  to: 0.1; dur: 1000; easing: linear; "
+                animation__cube_0_f0="property: height;  to: 0.1; dur: 1000; easing: linear; "
+                animation__cube_0_f0="property: depth;  to: 0.1; dur: 1000; easing: linear; "
+                animation__cube_0_f1="property: position; from: 0.283 0.32 0; to: 0.283 0.32 0.425; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f0, animationcomplete__cube_0_f4;"
+                animation__cube_0_f2="property: position; from: 0.283 0.32 0.425; to: -0.388 0.32 0.425; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f1;"
+                animation__cube_0_f3="property: position; from: -0.388 0.32 0.425; to: -0.388 0.32 -0.261; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f2;"
+                animation__cube_0_f4="property: position; from: -0.388 0.32 -0.261; to: 0.271 0.32 -0.261; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f3;"
             ></a-box>
         </a-marker>
     </entity>
