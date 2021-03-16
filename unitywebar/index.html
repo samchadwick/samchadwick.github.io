@@ -2,31 +2,21 @@
 <html>
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
 <body style='margin : 0px; overflow: scroll;'>
 <a-scene embedded arjs='patternRatio: 0.75; debugUIEnabled: false;'>
     <a-entity camera>
-        <a-marker type='pattern' url='/webar/pattern-happy.patt' id='marker' emitevents='true'
+        <a-marker type='pattern' url='https://raw.githubusercontent.com/samchadwick/samchadwick.github.io/master/webar/pattern-happy.patt' id='marker' emitevents='true'
                   cursor='rayOrigin: mouse'>
-            <a-box src="" id="Cube_0" class="intersectable" width="0.1" height="0.1" depth="0.1" position="-0.82 0.26 0.55" rotation="276.0177 -348.2997 -191.7633" color="#FFFFFF" transparent=False
-                animation__cube_0_f0="property: position;  to: 0.271 0.32 -0.261; dur: 6000; easing: linear; "
-                animation__cube_0_f0="property: rotation;  to: 355.0515 -180.106 -358.7708; dur: 6000; easing: linear; "
-                animation__cube_0_f0="property: width;  to: 0.1; dur: 6000; easing: linear; "
-                animation__cube_0_f0="property: height;  to: 0.1; dur: 6000; easing: linear; "
-                animation__cube_0_f0="property: depth;  to: 0.1; dur: 6000; easing: linear; "
-                animation__cube_0_f1="property: position; from: 0.271 0.32 -0.261; to: 0.268 0.16 1.586; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f0, animationcomplete__cube_0_f11;"
-                animation__cube_0_f2="property: position; from: 0.268 0.16 1.586; to: -1.704 0.202 1.586; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f1;"
-                animation__cube_0_f3="property: position; from: -1.704 0.202 1.586; to: -1.7 0.38 -0.42; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f2;"
-                animation__cube_0_f4="property: position; from: -1.7 0.38 -0.42; to: 0.34 0.34 -0.42; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f3;"
-                animation__cube_0_f5="property: rotation; from: 355.0515 -180.106 -358.7708; to: 306.8749 -181.6331 -357.9588; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f4;"
-                animation__cube_0_f6="property: rotation; from: 306.8749 -181.6331 -357.9588; to: 276.0177 -348.2997 -191.7633; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f5;"
-                animation__cube_0_f7="property: position; from: 0.34 0.34 -0.42; to: -2.08 0.39 -0.42; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f6;"
-                animation__cube_0_f8="property: position; from: -2.08 0.39 -0.42; to: 0.26 0.34 -0.42; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f7;"
-                animation__cube_0_f9="property: position; from: 0.26 0.34 -0.42; to: 0.253 0.026 2.626; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f8;"
-                animation__cube_0_f10="property: position; from: 0.253 0.026 2.626; to: -0.826 0.049 2.626; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f9;"
-                animation__cube_0_f11="property: position; from: -0.826 0.049 2.626; to: -0.82 0.26 0.55; dur: 0; easing: linear; startEvents: animationcomplete__cube_0_f10;"
+            <a-box src="" id="Cube_0" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 -2 0" color="#FFFFFF" transparent=False
+                   animation__keys_zoom_in="property: position; from: 0 -2 0; to: 0 2 0; dur: 6000; delay: 1000; easing: linear;"
+                   animation__keys_move_left="property: position; from: 0 2 0; to: -0.5 2 0; dur: 6000; delay: 3000; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
+                   animation__keys_fadeout="property: material.opacity; from: 1; to: 0; dur: 6000; delay: 3000; startEvents: animation__keys_move_left; easing: linear;"
+            ></a-box>
+            <a-box src="" id="Cube_1" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 2 0" color="#FFFFFF" material="opacity: 0.0;" transparent=False
+                   animation__text_fadein="property: material.opacity; from: 0.0; to: 1.0; dur: 6000; delay: 3000; startEvents: animationcomplete__keys_zoom_in; easing: linear;"
             ></a-box>
         </a-marker>
     </entity>
