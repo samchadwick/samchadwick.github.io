@@ -23,14 +23,28 @@
         });
 
         AFRAME.registerComponent('clickhandler', {
-            init: function() {
+            init: function () {
                 this.el.addEventListener('click', () => {
-                    alert("clicked");
                     window.open("https://www.ubs.com/global/en/investment-bank/research-academy.html", "_blank");
                 });
-        }});
+            }
+        });
 
-        setTimeout(() => document.querySelector("#video").play(), 34000);
+        AFRAME.registerComponent('animated', {
+            init: function () {
+                var marker = document.querySelector("#marker");
+                marker.addEventListener("markerFound", () => {
+                    if (!this.videoPreped) {
+                        this.videoPreped = true;
+                        setTimeout(() => document.querySelector("#video").play(), 30000);
+                        this.el.emit("markerFound");
+                    }
+                });
+                document.querySelector("#video").addEventListener("onended", () => {
+                    this.el.emit("videoFinished");
+                });
+            }
+        });
     </script>
 </head>
 <body style='margin : 0px; overflow: scroll;'>
@@ -45,43 +59,45 @@
                   url='https://raw.githubusercontent.com/samchadwick/samchadwick.github.io/master/webar/pattern-happy.patt'
                   id='marker' emitevents='true'
                   cursor='rayOrigin: mouse'>
-            <a-image keys src="#keys" rotation="-80 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 0 0"
+            <a-image animated src="#keys" rotation="-80 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 0 0"
                      scale="0 0 0"
-                     animation__keys_zoom_in="property: scale; from: 0 0 0; to: 1 1 1; dur: 6000; delay: 1000; easing: linear;"
-                     animation__keys_move_left="property: position; from: 0.125 0 0; to: -0.35 0 0; dur: 6000; delay: 3000; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
-                     animation__keys_fadeout="property: components.material.material.opacity; from: 1.0; to: 0.0; dur: 6000; delay: 22000;"
-                     animation__keys_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
-                     animation__keys_relocated="property: position; from: -0.35 0 0; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
-                     animation__keys_reapear="property: scale; from: 0 0 0; to: 1 1 1; dur: 1; delay: 42000; easing: linear;"
-                     animation__keys_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 42000;"
+                     animation__keys_zoom_in="property: scale; from: 0 0 0; to: 1 1 1; dur: 6000; delay: 1000; easing: linear; startEvents: markerFound;"
+                     animation__keys_move_left="property: position; from: 0.125 0 0; to: -0.35 0 0; dur: 3000; delay: 3000; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
+                     animation__keys_fadeout="property: components.material.material.opacity; from: 1.0; to: 0.0; dur: 6000; delay: 5000; startEvents: animationcomplete__keys_move_left;"
+                     animation__keys_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
+                     animation__keys_relocated="property: position; from: -0.35 0 0; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
+                     animation__keys_reapear="property: scale; from: 0 0 0; to: 1 1 1; dur: 1; easing: linear; startEvents: videoFinished;"
+                     animation__keys_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; startEvents: videoFinished;"
             ></a-image>
-            <a-image UBSText src="#UBSText" rotation="-80 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 0 0"
+            <a-image animated src="#UBSText" rotation="-80 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 0 0"
                      material="opacity: 0;"
-                     animation__logotext_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 11000;"
-                     animation__logotext_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 22000;"
-                     animation__logotext_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
+                     animation__logotext_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 11000; startEvents: markerFound;"
+                     animation__logotext_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 1000; startEvents: animationcomplete__logotext_fadein;"
+                     animation__logotext_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__logotext_fadeout;"
             >
-                <a-text value="Research Academy" color="black" position="0.3 0 0"
+                <a-text animated value="Research Academy" color="black" position="0.3 0 0"
                         opacity="0"
-                        animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 11000;"
-                        animation__text_fadeout="property: text.opacity; from: 1; to: 0; dur: 6000; delay: 22000;"
-                        animation__text_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
+                        animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 11000; startEvents: markerFound;"
+                        animation__text_fadeout="property: text.opacity; from: 1; to: 0; dur: 6000; delay: 1000; startEvents: animationcomplete__text_fadein;"
+                        animation__text_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__text_fadeout;"
                         scale="0.5 0.5 0.5"></a-text>
             </a-image>
-            <a-video id="videoPanel" video rotation="-80 0 0" src="#video" width="1" height="0.533"
+            <a-video animated id="videoPanel" video rotation="-80 0 0" src="#video" width="1" height="0.533"
                      position="0 0 0" material="opacity: 0;"
-                     animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
-                     animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
-                     animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 42000; easing: linear;"></a-video>
+                     animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 24000; startEvents: markerFound;"
+                     animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; startEvents: videoFinished;"
+                     animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"></a-video>
 
-            <a-plane cursor clickhandler class="clickable" id="videoButton" color="white" rotation="-80 0 0" position="0 0 0.375" width="1" height="0.166"
+            <a-plane animated cursor clickhandler id="videoButton" color="white" rotation="-80 0 0" position="0 0 0.375"
+                     width="1" height="0.166"
                      material="transparent: true; opacity: 0;"
-                     animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
-                     animation__button_move="property: position; from: 0 0 0.375; to: 0 0 0.25; dur: 6000; delay: 42000;"
-                     animation__button_resize="property: scale; from: 1 1 1; to: 1 1 2; dur: 6000; delay: 42000;">
-                <a-text clickhandler id="videoButtonText" value="Find Out More" color="black" position="-0.2 0 0.05"
+                     animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 24000; startEvents: markerFound;"
+                     animation__button_move="property: position; from: 0 0 0.375; to: 0 0 0.25; dur: 6000; startEvents: videoFinished;"
+                     animation__button_resize="property: scale; from: 1 1 1; to: 1 1 2; dur: 6000; startEvents: videoFinished;">
+                <a-text animated clickhandler id="videoButtonText" value="Find Out More" color="black"
+                        position="-0.2 0 0.05"
                         scale="0.25 0.25 0.25" opacity="0"
-                        animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"></a-text>
+                        animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 24000; startEvents: markerFound;"></a-text>
             </a-plane>
         </a-marker>
         </entity>
