@@ -4,12 +4,33 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script>
+        AFRAME.registerComponent('video', {
+            init: function () {
+                this.toggle = false;
+                document.querySelector("#video").pause();
+
+                document.querySelector("#videoPanel").addEventListener('click', () => {
+                    if (!this.toggle) {
+                        this.toggle = true;
+                        document.querySelector("#video").play();
+                    } else {
+                        this.toggle = false;
+                        document.querySelector("#video").pause();
+                    }
+                })
+            },
+        });
+
+        setTimeout(document.querySelector("#video").play(), 34000);
+    </script>
 </head>
 <body style='margin : 0px; overflow: scroll;'>
 <a-scene embedded arjs='patternRatio: 0.75; debugUIEnabled: false;'>
     <a-assets>
         <img id="keys" src="UBS-LogoKEYS.png"/>
         <img id="UBSText" src="UBS-LogoTEXT.png"/>
+        <video id="video" src="/webar/assets/video01.mp4" crossorigin playsinline controls></video>
     </a-assets>
     <a-entity camera>
         <a-marker type='pattern'
@@ -21,29 +42,31 @@
                      animation__keys_zoom_in="property: scale; from: 0 0 0; to: 1 1 1; dur: 6000; delay: 1000; easing: linear;"
                      animation__keys_move_left="property: position; from: 0.125 0 0; to: -0.35 0 0; dur: 6000; delay: 3000; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
                      animation__keys_fadeout="property: components.material.material.opacity; from: 1.0; to: 0.0; dur: 6000; delay: 22000;"
+                     animation__keys_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
             ></a-image>
             <a-image UBSText src="#UBSText" rotation="-90 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 0 0"
                      material="opacity: 0;"
-                     animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 11000;"
-                     animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 22000;"
+                     animation__logotext_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 11000;"
+                     animation__logotext_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 22000;"
+                     animation__logotext_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
             >
                 <a-text value="Research Academy" color="black" position="0.3 0 0"
                         opacity="0"
                         animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 11000;"
                         animation__text_fadeout="property: text.opacity; from: 1; to: 0; dur: 6000; delay: 22000;"
+                        animation__text_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
                         scale="0.5 0.5 0.5"></a-text>
             </a-image>
-            <a-box src="" id="Cube_2" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 0"
+            <a-video id="videoPanel" video rotation="-90 0 0" src="#video" width="1" height="0.533"
+                     position="0 0 0" material="opacity: 0;"
+                     animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
+                     animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;" ></a-video>
+            <a-box src="" id="Cube_3" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 0.375"
                    material="opacity: 0;"
                    animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
                    animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
             ></a-box>
-            <a-box src="" id="Cube_3" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 0.125"
-                   material="opacity: 0;"
-                   animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
-                   animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
-            ></a-box>
-            <a-box src="" id="Cube_4" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 -0.125"
+            <a-box src="" id="Cube_4" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 -0.375"
                    material="opacity: 0;"
                    animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
                    animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
