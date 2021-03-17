@@ -23,6 +23,11 @@
         });
 
         setTimeout(() => document.querySelector("#video").play(), 34000);
+        setTimeout(() => {
+            document.querySelector("#videoButton").addEventListener('click', () => {
+                window.open("https://www.ubs.com/global/en/investment-bank/research-academy.html", "_blank");
+            });
+        }, 34000);
     </script>
 </head>
 <body style='margin : 0px; overflow: scroll;'>
@@ -43,6 +48,9 @@
                      animation__keys_move_left="property: position; from: 0.125 0 0; to: -0.35 0 0; dur: 6000; delay: 3000; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
                      animation__keys_fadeout="property: components.material.material.opacity; from: 1.0; to: 0.0; dur: 6000; delay: 22000;"
                      animation__keys_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
+                     animation__keys_relocated="property: position; from: -0.35 0 0; to: 0 0 0; dur: 1; delay: 28000; easing: linear;"
+                     animation__keys_reapear="property: scale; from: 0 0 0; to: 1 1 1; dur: 1; delay: 42000; easing: linear;"
+                     animation__keys_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 42000;"
             ></a-image>
             <a-image UBSText src="#UBSText" rotation="-90 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 0 0"
                      material="opacity: 0;"
@@ -59,28 +67,19 @@
             </a-image>
             <a-video id="videoPanel" video rotation="-90 0 0" src="#video" width="1" height="0.533"
                      position="0 0 0" material="opacity: 0;"
-                     animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
-                     animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;" ></a-video>
-            <a-box src="" id="Cube_3" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 0.375"
-                   material="opacity: 0;"
-                   animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
-                   animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
-            ></a-box>
-            <a-box src="" id="Cube_4" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 -0.375"
-                   material="opacity: 0;"
-                   animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
-                   animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
-            ></a-box>
-            <a-box src="" id="Cube_2" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 0"
-                   material="opacity: 0;"
-                   animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 42000;"
-                   animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 48000;"
-            ></a-box>
-            <a-box src="" id="Cube_3" class="intersectable" width="0.1" height="0.1" depth="0.1" position="0 0 -0.125"
-                   material="opacity: 0;"
-                   animation__text_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 42000;"
-                   animation__text_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 48000;"
-            ></a-box>
+                     animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
+                     animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 6000; delay: 36000;"
+                     animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; delay: 42000; easing: linear;"></a-video>
+
+            <a-plane id="videoButton" color="white" rotation="-90 0 0" position="0 0 0.375" width="1" height="0.166"
+                     material="transparent: true; opacity: 0;"
+                     animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"
+                     animation__button_move="property: position; from: 0 0 0.375; to: 0 0 0.25; dur: 6000; delay: 42000;"
+                     animation__button_resize="property: scale; from: 1 1 1; to: 1 1 2; dur: 6000; delay: 42000;">
+                <a-text id="videoButtonText" value="Find Out More" color="black" position="-0.2 0 0.05"
+                        scale="0.25 0.25 0.25" opacity="0"
+                        animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 28000;"></a-text>
+            </a-plane>
         </a-marker>
         </entity>
 </a-scene>
