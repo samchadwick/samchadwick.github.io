@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script>
         AFRAME.registerComponent('video', {
             init: function () {
@@ -24,7 +25,7 @@
 
         AFRAME.registerComponent('clickhandler', {
             init: function () {
-                this.el.addEventListener('click', () => {
+                document.querySelector("#videoButton").addEventListener('click', () => {
                     window.open("https://www.ubs.com/global/en/investment-bank/research-academy.html", "_blank");
                 });
             }
@@ -47,14 +48,17 @@
         });
     </script>
 </head>
-<body style='margin : 0px; overflow: scroll;'>
-<a-scene embedded arjs='patternRatio: 0.75; debugUIEnabled: false;'>
+<body style='margin : 0px; overflow: hidden;'>
+<a-scene embedded
+         arjs='patternRatio: 0.75; debugUIEnabled: false; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+         vr-mode-ui='enabled: false' device-orientation-permission-ui="enabled: false">
     <a-assets>
         <img id="keys" src="UBS-LogoKEYS.png"/>
         <img id="UBSText" src="UBS-LogoTEXT.png"/>
         <video id="video" src="/webar/assets/video01.mp4" crossorigin playsinline controls></video>
     </a-assets>
-    <a-entity cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
+    <a-entity cursor="use: false; rayOrigin: mouse;" raycaster="objects: .intersectable; useWorldCoordinates: true;">
+    </a-entity>
     <a-marker type='pattern'
               url='https://raw.githubusercontent.com/samchadwick/samchadwick.github.io/master/webar/pattern-happy.patt'
               id='marker' emitevents='true'>
@@ -82,12 +86,13 @@
                     scale="0.5 0.5 0.5"></a-text>
         </a-image>
         <a-video animated id="videoPanel" video rotation="-90 0 0" src="#video" width="1" height="0.533"
-                 position="0 -1 0" material="opacity: 0;"
+                 position="0 -1 0" material="opacity: 0;" class="intersectable"
                  animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000; startEvents: markerFound;"
                  animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished;"
                  animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"></a-video>
 
-        <a-plane cursor clickhandler class="intersectable" animated id="videoButton" color="white" rotation="-90 0 0" position="0 -1 0.375"
+        <a-plane clickhandler class="intersectable" animated id="videoButton" color="white" rotation="-90 0 0"
+                 position="0 -1 0.375"
                  width="1" height="0.166"
                  material="transparent: true; opacity: 0;"
                  animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000; startEvents: markerFound;"
