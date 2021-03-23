@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script>
         AFRAME.registerComponent('video', {
@@ -12,6 +12,7 @@
                 document.querySelector("#video").pause();
 
                 document.querySelector("#videoPanel").addEventListener('click', () => {
+                    console.log("video clicked");
                     if (!this.toggle) {
                         this.toggle = true;
                         document.querySelector("#video").play();
@@ -26,6 +27,7 @@
         AFRAME.registerComponent('clickhandler', {
             init: function () {
                 document.querySelector("#videoButton").addEventListener('click', () => {
+                    console.log("button clicked");
                     window.open("https://www.ubs.com/global/en/investment-bank/research-academy.html", "_blank");
                 });
             }
