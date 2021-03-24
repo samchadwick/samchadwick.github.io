@@ -55,14 +55,14 @@
          arjs='patternRatio: 0.75; debugUIEnabled: false; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
          vr-mode-ui='enabled: false' device-orientation-permission-ui="enabled: false">
     <a-assets>
-        <img id="keys" src="UBS-LogoKEYS.png"/>
-        <img id="UBSText" src="UBS-LogoTEXT.png"/>
-        <video id="video" src="/webar/assets/video01.mp4" crossorigin playsinline controls></video>
+        <img id="keys" src="/assets/UBS-LogoKEYS.png"/>
+        <img id="UBSText" src="/assets/UBS-LogoTEXT.png"/>
+        <video id="video" src="/assets/video01.mp4" crossorigin playsinline controls></video>
     </a-assets>
     <a-entity cursor="use: false; rayOrigin: mouse;" raycaster="objects: .intersectable; useWorldCoordinates: true;">
     </a-entity>
     <a-marker type='pattern'
-              url='https://raw.githubusercontent.com/samchadwick/samchadwick.github.io/master/webar/pattern-happy.patt'
+              url='https://raw.githubusercontent.com/samchadwick/samchadwick.github.io/master/unitywebar/markers/pattern-happy.patt'
               id='marker' emitevents='true'>
         <a-image animated src="#keys" rotation="-90 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 -1 0"
                  scale="0 0 0"
