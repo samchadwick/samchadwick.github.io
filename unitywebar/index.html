@@ -55,7 +55,7 @@
     <a-assets>
         <img id="keys" src="/unitywebar/assets/UBS-LogoKEYS.png"/>
         <img id="UBSText" src="/unitywebar/assets/UBS-LogoTEXT.png"/>
-        <video id="video" src="/unitywebar/assets/what_is_ra.mp4" crossorigin playsinline controls></video>
+        <video id="video" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
     </a-assets>
     <a-entity cursor="use: false; rayOrigin: mouse;" raycaster="objects: .intersectable; useWorldCoordinates: true;">
     </a-entity>
@@ -83,7 +83,7 @@
                 scale="0.5 0.5 0.5">
             </a-text>
         </a-image>
-        <a-video animated id="videoPanel" video rotation="-90 0 0" src="#video" width="2" height="1.33" position="0 -1 -1" material="opacity: 0;" class="intersectable"
+        <a-video animated id="videoPanel" video rotation="-90 0 0" src="#video" width="2" height="1.125" position="0 -1 -1" material="opacity: 0;" class="intersectable"
             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000; startEvents: markerFound;"
             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished;"
             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;">
