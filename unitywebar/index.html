@@ -107,14 +107,9 @@
                  animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished;"
                  animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;">
             <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
-                        animated
+                        animated color="#000000"
                         animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.8 0.8 0.8; dur: 250; startEvents: videoPaused;"
                         animation__videosymbol_fadeout="property: scale; from: 0.8 0.8 0.8; to: 0 0 0; dur: 250; startEvents: videoPlayed;"
-            ></a-triangle>
-            <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.05"
-                        animated color="#000000"
-                        animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.81 0.81 0.81; dur: 250; startEvents: videoPaused;"
-                        animation__videosymbol_fadeout="property: scale; from: 0.81 0.81 0.81; to: 0 0 0; dur: 250; startEvents: videoPlayed;"
             ></a-triangle>
         </a-video>
         <a-plane clickhandler class="intersectable" animated id="videoButton" color="white" rotation="-90 0 0"
