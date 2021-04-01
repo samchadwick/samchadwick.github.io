@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script>
         AFRAME.registerComponent('video', {
             init: function () {
@@ -46,10 +46,8 @@
         });
     </script>
 </head>
-<body style='margin : 0px; overflow: hidden;'>
-<a-scene embedded
-         arjs='patternRatio: 0.75; debugUIEnabled: false; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
-         vr-mode-ui='enabled: false' device-orientation-permission-ui="enabled: false">
+<body>
+<a-scene>
     <a-assets>
         <img id="keys" src="/unitywebar/assets/UBS-LogoKEYS.png"/>
         <img id="UBSText" src="/unitywebar/assets/UBS-LogoTEXT.png"/>
@@ -57,21 +55,17 @@
     </a-assets>
     <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .intersectable; useWorldCoordinates: true;">
     </a-entity>
-    <a-plane clickhandler class="intersectable" color="white" rotation="-90 0 0" position="0 -5 0" width="10"
-             height="10"
-             material="transparent: true; opacity: 0.8;">
-    </a-plane>
-    <a-image animated src="#keys" rotation="-90 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 -1 -1"
+    <a-image animated src="#keys" rotation="0 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 2 -2"
              scale="0 0 0"
              animation__keys_zoom_in="property: scale; from: 0 0 0; to: 1 1 1; dur: 1500; easing: linear;"
-             animation__keys_move_left="property: position; from: 0.125 -1 -1; to: -0.35 -1 -1; dur: 1000; delay: 500; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
+             animation__keys_move_left="property: position; from: 0.125 2 -2; to: -0.35 2 -2; dur: 1000; delay: 500; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
              animation__keys_fadeout="property: components.material.material.opacity; from: 1.0; to: 0.0; dur: 1000; delay: 2000; startEvents: animationcomplete__keys_move_left;"
              animation__keys_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
-             animation__keys_relocated="property: position; from: -0.35 -1 -1; to: 0 -1 -1; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
+             animation__keys_relocated="property: position; from: -0.35 2 -2; to: 0 2 -2; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
              animation__keys_reapear="property: scale; from: 0 0 0; to: 1 1 1; dur: 1; easing: linear; delay: 3000; startEvents: videoFinished;"
              animation__keys_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 3000; startEvents: videoFinished;">
     </a-image>
-    <a-image animated src="#UBSText" rotation="-90 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 -1 -1"
+    <a-image animated src="#UBSText" rotation="0 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 2 -2"
              material="opacity: 0;"
              animation__logotext_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 500; delay: 2500;"
              animation__logotext_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 1000; delay: 2000; startEvents: animationcomplete__logotext_fadein;"
@@ -83,8 +77,8 @@
                 scale="0.5 0.5 0.5">
         </a-text>
     </a-image>
-    <a-video animated id="videoPanel" video rotation="-90 0 0" src="#video" width="2" height="1.125"
-             position="0 -1 -1" material="opacity: 0;" class="intersectable"
+    <a-video animated id="videoPanel" video rotation="0 0 0" src="#video" width="2" height="1.125"
+             position="0 2 -2" material="opacity: 0;" class="intersectable"
              animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
              animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished;"
              animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;">
@@ -94,11 +88,11 @@
                     animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed;"
         ></a-triangle>
     </a-video>
-    <a-plane clickhandler class="intersectable" animated id="videoButton" color="white" rotation="-90 0 0"
-             position="0 -1 0" width="2" height="0.5"
+    <a-plane clickhandler class="intersectable" animated id="videoButton" color="white" rotation="0 0 0"
+             position="0 1 -2" width="2" height="0.5"
              material="transparent: true; opacity: 0;"
              animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 16000;"
-             animation__button_move="property: position; from: 0 -1 0; to: 0 -1 -0.55; dur: 2500; delay: 500; startEvents: videoFinished;">
+             animation__button_move="property: position; from: 0 1 -2; to: 0 1 -1; dur: 2500; delay: 500; startEvents: videoFinished;">
         <a-text animated id="videoButtonText" value="Click Here to Find Out More" color="black"
                 position="-0.75 0 0.05" scale="0.5 0.5 0.5" opacity="0"
                 animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 16000;">
