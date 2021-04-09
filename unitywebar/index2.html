@@ -13,6 +13,7 @@
                     console.log("video clicked");
                     if (!this.toggle) {
                         this.toggle = true;
+                        pauseOthers(1);
                         document.querySelector("#video").play();
                     } else {
                         this.toggle = false;
@@ -21,6 +22,194 @@
                 })
             },
         });
+
+        AFRAME.registerComponent('video2', {
+            init: function () {
+                this.toggle2 = true;
+                document.querySelector("#video2").pause();
+
+                document.querySelector("#videoPanel2").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle2) {
+                        this.toggle2 = true;
+                        pauseOthers(2);
+                        document.querySelector("#video2").play();
+                    } else {
+                        this.toggle2 = false;
+                        document.querySelector("#video2").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video3', {
+            init: function () {
+                this.toggle3 = true;
+                document.querySelector("#video3").pause();
+
+                document.querySelector("#videoPanel3").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle3) {
+                        this.toggle3 = true;
+                        pauseOthers(3);
+                        document.querySelector("#video3").play();
+                    } else {
+                        this.toggle3 = false;
+                        document.querySelector("#video3").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video4', {
+            init: function () {
+                this.toggle4 = true;
+                document.querySelector("#video4").pause();
+
+                document.querySelector("#videoPanel4").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle4) {
+                        this.toggle4 = true;
+                        pauseOthers(4);
+                        document.querySelector("#video4").play();
+                    } else {
+                        this.toggle4 = false;
+                        document.querySelector("#video4").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video5', {
+            init: function () {
+                this.toggle5 = true;
+                document.querySelector("#video5").pause();
+
+                document.querySelector("#videoPanel5").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle5) {
+                        this.toggle5 = true;
+                        pauseOthers(5);
+                        document.querySelector("#video5").play();
+                    } else {
+                        this.toggle5 = false;
+                        document.querySelector("#video5").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video6', {
+            init: function () {
+                this.toggle6 = true;
+                document.querySelector("#video6").pause();
+
+                document.querySelector("#videoPanel6").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle6) {
+                        this.toggle6 = true;
+                        pauseOthers(6);
+                        document.querySelector("#video6").play();
+                    } else {
+                        this.toggle6 = false;
+                        document.querySelector("#video6").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video7', {
+            init: function () {
+                this.toggle7 = true;
+                document.querySelector("#video7").pause();
+
+                document.querySelector("#videoPanel7").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle7) {
+                        this.toggle7 = true;
+                        pauseOthers(7);
+                        document.querySelector("#video7").play();
+                    } else {
+                        this.toggle7 = false;
+                        document.querySelector("#video7").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video8', {
+            init: function () {
+                this.toggle8 = true;
+                document.querySelector("#video8").pause();
+
+                document.querySelector("#videoPanel8").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle8) {
+                        this.toggle8 = true;
+                        pauseOthers(8);
+                        document.querySelector("#video8").play();
+                    } else {
+                        this.toggle8 = false;
+                        document.querySelector("#video8").pause();
+                    }
+                })
+            },
+        });
+
+        AFRAME.registerComponent('video9', {
+            init: function () {
+                this.toggle9 = true;
+                document.querySelector("#video9").pause();
+
+                document.querySelector("#videoPanel9").addEventListener('click', () => {
+                    console.log("video clicked");
+                    if (!this.toggle9) {
+                        this.toggle9 = true;
+                        pauseOthers(9);
+                        document.querySelector("#video9").play();
+                    } else {
+                        this.toggle9 = false;
+                        document.querySelector("#video9").pause();
+                    }
+                })
+            },
+        });
+
+        function pauseOthers(current) {
+            for (i = 1; i < 10; i++) {
+                if (i === current) {
+                    continue;
+                }
+                if (i === 1 && this.toggle) {
+                    this.toggle = false;
+                }
+                if (i === 2 && this.toggle2) {
+                    this.toggle2 = false;
+                }
+                if (i === 3 && this.toggle3) {
+                    this.toggle3 = false;
+                }
+                if (i === 4 && this.toggle4) {
+                    this.toggle4 = false;
+                }
+                if (i === 5 && this.toggle5) {
+                    this.toggle5 = false;
+                }
+                if (i === 6 && this.toggle6) {
+                    this.toggle6 = false;
+                }
+                if (i === 7 && this.toggle7) {
+                    this.toggle7 = false;
+                }
+                if (i === 8 && this.toggle8) {
+                    this.toggle8 = false;
+                }
+                if (i === 9 && this.toggle9) {
+                    this.toggle9 = false;
+                }
+                document.querySelector("#video" + (i === 1 ? "" : i)).pause();
+            }
+        }
 
         AFRAME.registerComponent('clickhandler', {
             init: function () {
@@ -34,7 +223,7 @@
         AFRAME.registerComponent('animated', {
             init: function () {
                 document.querySelector("#video").addEventListener("ended", () => {
-                    this.el.emit("videoFinished");
+                    // this.el.emit("videoFinished");
                 });
                 document.querySelector("#video").addEventListener("play", () => {
                     this.el.emit("videoPlayed");
@@ -42,11 +231,89 @@
                 document.querySelector("#video").addEventListener("pause", () => {
                     this.el.emit("videoPaused");
                 });
+                document.querySelector("#video1").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished1");
+                });
+                document.querySelector("#video1").addEventListener("play", () => {
+                    this.el.emit("videoPlayed1");
+                });
+                document.querySelector("#video1").addEventListener("pause", () => {
+                    this.el.emit("videoPaused1");
+                });
+                document.querySelector("#video2").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished2");
+                });
+                document.querySelector("#video2").addEventListener("play", () => {
+                    this.el.emit("videoPlayed2");
+                });
+                document.querySelector("#video2").addEventListener("pause", () => {
+                    this.el.emit("videoPaused2");
+                });
+                document.querySelector("#video3").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished3");
+                });
+                document.querySelector("#video3").addEventListener("play", () => {
+                    this.el.emit("videoPlayed3");
+                });
+                document.querySelector("#video3").addEventListener("pause", () => {
+                    this.el.emit("videoPaused3");
+                });
+                document.querySelector("#video4").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished4");
+                });
+                document.querySelector("#video4").addEventListener("play", () => {
+                    this.el.emit("videoPlayed4");
+                });
+                document.querySelector("#video4").addEventListener("pause", () => {
+                    this.el.emit("videoPaused4");
+                });
+                document.querySelector("#video5").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished5");
+                });
+                document.querySelector("#video5").addEventListener("play", () => {
+                    this.el.emit("videoPlayed5");
+                });
+                document.querySelector("#video5").addEventListener("pause", () => {
+                    this.el.emit("videoPaused5");
+                });
+                document.querySelector("#video6").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished6");
+                });
+                document.querySelector("#video6").addEventListener("play", () => {
+                    this.el.emit("videoPlayed6");
+                });
+                document.querySelector("#video6").addEventListener("pause", () => {
+                    this.el.emit("videoPaused6");
+                });
+                document.querySelector("#video7").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished7");
+                });
+                document.querySelector("#video7").addEventListener("play", () => {
+                    this.el.emit("videoPlayed7");
+                });
+                document.querySelector("#video7").addEventListener("pause", () => {
+                    this.el.emit("videoPaused7");
+                });
+                document.querySelector("#video8").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished8");
+                });
+                document.querySelector("#video8").addEventListener("play", () => {
+                    this.el.emit("videoPlayed8");
+                });
+                document.querySelector("#video8").addEventListener("pause", () => {
+                    this.el.emit("videoPaused8");
+                });
+                document.querySelector("#video9").addEventListener("ended", () => {
+                    // this.el.emit("videoFinished9");
+                });
+                document.querySelector("#video9").addEventListener("play", () => {
+                    this.el.emit("videoPlayed9");
+                });
+                document.querySelector("#video9").addEventListener("pause", () => {
+                    this.el.emit("videoPaused9");
+                });
             }
         });
-
-        setTimeout(() => {document.querySelector("#video").play()}, 6000);
-        setTimeout(() => {if (document.querySelector("#video").paused) {document.querySelector("#video").pause()}}, 6500);
     </script>
 </head>
 <body>
@@ -55,6 +322,14 @@
         <img id="keys" src="/unitywebar/assets/UBS-LogoKEYS.png"/>
         <img id="UBSText" src="/unitywebar/assets/UBS-LogoTEXT.png"/>
         <video id="video" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video2" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video3" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video4" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video5" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video6" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video7" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video8" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
+        <video id="video9" src="/unitywebar/assets/intro_movie.mp4" crossorigin playsinline controls></video>
     </a-assets>
     <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .intersectable; useWorldCoordinates: true;">
     </a-entity>
@@ -101,6 +376,126 @@
                 animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 6000; delay: 16000;">
         </a-text>
     </a-plane>
+    <a-video animated id="videoPanel2" video2 rotation="0 -20 0" src="#video2" width="2" height="1.125"
+             position="3 2 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished2;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: 0 -20 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed2;"
+             animation__video_focused_position="property: position; from: 3 2 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed2;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: 0 -20 0; dur: 500; easing: linear; startEvents: videoPaused2;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: 3 2 -3.5; dur: 500; easing: linear; startEvents: videoPaused2;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused2;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed2;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel3" video3 rotation="0 20 0" src="#video3" width="2" height="1.125"
+             position="-3 2 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished3;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: 0 20 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed3;"
+             animation__video_focused_position="property: position; from: -3 2 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed3;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: 0 20 0; dur: 500; easing: linear; startEvents: videoPaused3;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: -3 2 -3.5; dur: 500; easing: linear; startEvents: videoPaused3;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused3;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed3;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel4" video4 rotation="20 0 0" src="#video4" width="2" height="1.125"
+             position="0 4 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished4;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: 20 0 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed4;"
+             animation__video_focused_position="property: position; from: 0 4 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed4;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: 20 0 0; dur: 500; easing: linear; startEvents: videoPaused4;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: 0 4 -3.5; dur: 500; easing: linear; startEvents: videoPaused4;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused4;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed4;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel5" video5 rotation="-20 0 0" src="#video5" width="2" height="1.125"
+             position="0 0 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished5;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: -20 0 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed5;"
+             animation__video_focused_position="property: position; from: 0 0 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed5;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: -20 0 0; dur: 500; easing: linear; startEvents: videoPaused5;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: 0 0 -3.5; dur: 500; easing: linear; startEvents: videoPaused5;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused5;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed5;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel6" video6 rotation="-20 -20 0" src="#video6" width="2" height="1.125"
+             position="3 -0.1 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished6;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: -20 -20 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed6;"
+             animation__video_focused_position="property: position; from: 3 -0.1 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed6;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: -20 -20 0; dur: 500; easing: linear; startEvents: videoPaused6;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: 3 -0.1 -3.5; dur: 500; easing: linear; startEvents: videoPaused6;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused6;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed6;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel7" video7 rotation="-20 20 0" src="#video7" width="2" height="1.125"
+             position="-3 -0.1 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished7;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: -20 20 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed7;"
+             animation__video_focused_position="property: position; from: -3 -0.1 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed7;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: -20 20 0; dur: 500; easing: linear; startEvents: videoPaused7;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: -3 -0.1 -3.5; dur: 500; easing: linear; startEvents: videoPaused7;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused7;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed7;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel8" video8 rotation="20 -20 0" src="#video8" width="2" height="1.125"
+             position="3 4.1 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished8;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: 20 -20 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed8;"
+             animation__video_focused_position="property: position; from: 3 4.1 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed8;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: 20 -20 0; dur: 500; easing: linear; startEvents: videoPaused8;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: 3 4.1 -3.5; dur: 500; easing: linear; startEvents: videoPaused8;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused8;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed8;"
+        ></a-triangle>
+    </a-video>
+    <a-video animated id="videoPanel9" video9 rotation="20 20 0" src="#video9" width="2" height="1.125"
+             position="-3 4.1 -3.5" material="opacity: 0;" class="intersectable"
+             animation__video_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 6000;"
+             animation__video_fadeout="property: components.material.material.opacity; from: 1; to: 0; dur: 3000; startEvents: videoFinished9;"
+             animation__video_disapear="property: scale; from: 1 1 1; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__video_fadeout;"
+             animation__video_focused_rotate="property: rotation; from: 20 20 0; to: 0 0 0; dur: 500; easing: linear; startEvents: videoPlayed9;"
+             animation__video_focused_position="property: position; from: -3 4.1 -3.5; to: 0 1 -2; dur: 500; easing: linear; startEvents: videoPlayed9;"
+             animation__video_unfocused_rotate="property: rotation; from: 0 0 0; to: 20 20 0; dur: 500; easing: linear; startEvents: videoPaused9;"
+             animation__video_unfocused_position="property: position; from: 0 1 -2; to: -3 4.1 -3.5; dur: 500; easing: linear; startEvents: videoPaused9;">
+        <a-triangle rotation="0 0 -90" scale="0 0 0" position="0 0 0.1"
+                    animated color="#000000"
+                    animation__videosymbol_fadein="property: scale; from: 0 0 0; to: 0.4 0.4 0.4; dur: 250; startEvents: videoPaused9;"
+                    animation__videosymbol_fadeout="property: scale; from: 0.4 0.4 0.4; to: 0 0 0; dur: 250; startEvents: videoPlayed9;"
+        ></a-triangle>
+    </a-video>
 </a-scene>
 </body>
 </html>
