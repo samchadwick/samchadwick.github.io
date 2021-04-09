@@ -6,17 +6,15 @@
     <script>
         AFRAME.registerComponent('video', {
             init: function () {
-                this.toggle = true;
                 document.querySelector("#video").pause();
 
                 document.querySelector("#videoPanel").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle) {
-                        this.toggle = true;
+                    if (document.querySelector("#video").paused) {
                         pauseOthers(1);
                         document.querySelector("#video").play();
                     } else {
-                        this.toggle = false;
+
                         document.querySelector("#video").pause();
                     }
                 })
@@ -25,17 +23,15 @@
 
         AFRAME.registerComponent('video2', {
             init: function () {
-                this.toggle2 = true;
                 document.querySelector("#video2").pause();
 
                 document.querySelector("#videoPanel2").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle2) {
-                        this.toggle2 = true;
+                    if (document.querySelector("#video2").paused) {
                         pauseOthers(2);
                         document.querySelector("#video2").play();
                     } else {
-                        this.toggle2 = false;
+
                         document.querySelector("#video2").pause();
                     }
                 })
@@ -44,17 +40,15 @@
 
         AFRAME.registerComponent('video3', {
             init: function () {
-                this.toggle3 = true;
                 document.querySelector("#video3").pause();
 
                 document.querySelector("#videoPanel3").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle3) {
-                        this.toggle3 = true;
+                    if (document.querySelector("#video3").paused) {
                         pauseOthers(3);
                         document.querySelector("#video3").play();
                     } else {
-                        this.toggle3 = false;
+
                         document.querySelector("#video3").pause();
                     }
                 })
@@ -63,17 +57,15 @@
 
         AFRAME.registerComponent('video4', {
             init: function () {
-                this.toggle4 = true;
                 document.querySelector("#video4").pause();
 
                 document.querySelector("#videoPanel4").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle4) {
-                        this.toggle4 = true;
+                    if (document.querySelector("#video4").paused) {
                         pauseOthers(4);
                         document.querySelector("#video4").play();
                     } else {
-                        this.toggle4 = false;
+
                         document.querySelector("#video4").pause();
                     }
                 })
@@ -82,17 +74,15 @@
 
         AFRAME.registerComponent('video5', {
             init: function () {
-                this.toggle5 = true;
                 document.querySelector("#video5").pause();
 
                 document.querySelector("#videoPanel5").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle5) {
-                        this.toggle5 = true;
+                    if (document.querySelector("#video5").paused) {
                         pauseOthers(5);
                         document.querySelector("#video5").play();
                     } else {
-                        this.toggle5 = false;
+
                         document.querySelector("#video5").pause();
                     }
                 })
@@ -101,17 +91,15 @@
 
         AFRAME.registerComponent('video6', {
             init: function () {
-                this.toggle6 = true;
                 document.querySelector("#video6").pause();
 
                 document.querySelector("#videoPanel6").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle6) {
-                        this.toggle6 = true;
+                    if (document.querySelector("#video6").paused) {
                         pauseOthers(6);
                         document.querySelector("#video6").play();
                     } else {
-                        this.toggle6 = false;
+
                         document.querySelector("#video6").pause();
                     }
                 })
@@ -120,17 +108,15 @@
 
         AFRAME.registerComponent('video7', {
             init: function () {
-                this.toggle7 = true;
                 document.querySelector("#video7").pause();
 
                 document.querySelector("#videoPanel7").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle7) {
-                        this.toggle7 = true;
+                    if (document.querySelector("#video7").paused) {
                         pauseOthers(7);
                         document.querySelector("#video7").play();
                     } else {
-                        this.toggle7 = false;
+
                         document.querySelector("#video7").pause();
                     }
                 })
@@ -139,17 +125,15 @@
 
         AFRAME.registerComponent('video8', {
             init: function () {
-                this.toggle8 = true;
                 document.querySelector("#video8").pause();
 
                 document.querySelector("#videoPanel8").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle8) {
-                        this.toggle8 = true;
+                    if (document.querySelector("#video8").paused) {
                         pauseOthers(8);
                         document.querySelector("#video8").play();
                     } else {
-                        this.toggle8 = false;
+
                         document.querySelector("#video8").pause();
                     }
                 })
@@ -158,17 +142,15 @@
 
         AFRAME.registerComponent('video9', {
             init: function () {
-                this.toggle9 = true;
                 document.querySelector("#video9").pause();
 
                 document.querySelector("#videoPanel9").addEventListener('click', () => {
                     console.log("video clicked");
-                    if (!this.toggle9) {
-                        this.toggle9 = true;
+                    if (document.querySelector("#video9").paused) {
                         pauseOthers(9);
                         document.querySelector("#video9").play();
                     } else {
-                        this.toggle9 = false;
+
                         document.querySelector("#video9").pause();
                     }
                 })
@@ -179,33 +161,6 @@
             for (i = 1; i < 10; i++) {
                 if (i === current) {
                     continue;
-                }
-                if (i === 1 && this.toggle) {
-                    this.toggle = false;
-                }
-                if (i === 2 && this.toggle2) {
-                    this.toggle2 = false;
-                }
-                if (i === 3 && this.toggle3) {
-                    this.toggle3 = false;
-                }
-                if (i === 4 && this.toggle4) {
-                    this.toggle4 = false;
-                }
-                if (i === 5 && this.toggle5) {
-                    this.toggle5 = false;
-                }
-                if (i === 6 && this.toggle6) {
-                    this.toggle6 = false;
-                }
-                if (i === 7 && this.toggle7) {
-                    this.toggle7 = false;
-                }
-                if (i === 8 && this.toggle8) {
-                    this.toggle8 = false;
-                }
-                if (i === 9 && this.toggle9) {
-                    this.toggle9 = false;
                 }
                 document.querySelector("#video" + (i === 1 ? "" : i)).pause();
             }
