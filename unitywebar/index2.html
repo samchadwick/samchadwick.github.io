@@ -267,6 +267,8 @@
     <a-assets>
         <img id="keys" src="/unitywebar/assets/UBS-LogoKEYS.png"/>
         <img id="UBSText" src="/unitywebar/assets/UBS-LogoTEXT.png"/>
+        <a-asset-item id="UBSKeysModel" src="/unitywebar/assets/UBS-LogoKEYS.obj"></a-asset-item>
+        <a-asset-item id="UBSKeysMaterial" src="/unitywebar/assets/UBS-LogoKEYS.mtl"></a-asset-item>
         <video id="video" src="/unitywebar/assets/intro_movie.mp4#t=0.5" crossorigin playsinline controls></video>
         <video id="video2" src="/unitywebar/assets/intro_movie.mp4#t=0.5" crossorigin playsinline controls></video>
         <video id="video3" src="/unitywebar/assets/intro_movie.mp4#t=0.5" crossorigin playsinline controls></video>
@@ -280,7 +282,7 @@
     <a-sky color="#FFFFFF"></a-sky>
     <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .intersectable; useWorldCoordinates: true;">
     </a-entity>
-    <a-image animated src="#keys" rotation="0 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 2 -4"
+    <a-entity animated obj-model="obj: #UBSKeysModel; mtl: #UBSKeysMaterial;" rotation="0 0 0" width="0.3" height="0.3" depth="0.3" position="0.125 2 -4"
              scale="0 0 0"
              animation__keys_zoom_in="property: scale; from: 0 0 0; to: 1 1 1; dur: 1500; easing: linear;"
              animation__keys_move_left="property: position; from: 0.125 2 -4; to: -0.35 2 -4; dur: 750; delay: 250; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
@@ -289,7 +291,7 @@
              animation__keys_relocated="property: position; from: -0.35 2 -4; to: 0 2 -4; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
              animation__keys_reapear="property: scale; from: 0 0 0; to: 1 1 1; dur: 1; easing: linear; delay: 3000; startEvents: videoFinished;"
              animation__keys_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 3000; startEvents: videoFinished;">
-    </a-image>
+    </a-entity>
     <a-image animated src="#UBSText" rotation="0 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 2 -4"
              material="opacity: 0;"
              animation__logotext_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 500; delay: 2500;"
