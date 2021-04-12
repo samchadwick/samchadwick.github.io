@@ -303,12 +303,12 @@
     </a-entity>
     <a-entity animated obj-model="obj: #UBSKeysModel; mtl: #UBSKeysMaterial;" rotation="90 0 0" width="0.2" height="0.2" depth="0.2" position="0.125 2 -4"
              scale="0 0 0" model-opacity="1"
-             animation__keys_zoom_in="property: scale; from: 0 0 0; to: 0.0006 0.0006 0.0006; dur: 1500; easing: linear;"
+             animation__keys_zoom_in="property: scale; from: 0 0 0; to: 0.0008 0.0008 0.0008; dur: 1500; easing: linear;"
              animation__keys_move_left="property: position; from: 0.125 2 -4; to: -0.35 2 -4; dur: 750; delay: 250; easing: linear; startEvents: animationcomplete__keys_zoom_in;"
              animation__keys_fadeout="property: model-opacity; from: 1.0; to: 0.0; dur: 1000; delay: 2000; startEvents: animationcomplete__keys_move_left;"
-             animation__keys_disapear="property: scale; from: 0.0006 0.0006 0.0006; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
+             animation__keys_disapear="property: scale; from: 0.0008 0.0008 0.0008; to: 0 0 0; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
              animation__keys_relocated="property: position; from: -0.35 2 -4; to: 0 2 -4; dur: 1; easing: linear; startEvents: animationcomplete__keys_fadeout;"
-             animation__keys_reapear="property: scale; from: 0 0 0; to: 0.0006 0.0006 0.0006; dur: 1; easing: linear; delay: 3000; startEvents: videoFinished;"
+             animation__keys_reapear="property: scale; from: 0 0 0; to: 0.0008 0.0008 0.0008; dur: 1; easing: linear; delay: 3000; startEvents: videoFinished;"
              animation__keys_fadein="property: model-opacity; from: 0; to: 1; dur: 3000; delay: 3000; startEvents: videoFinished;">
     </a-entity>
     <a-image animated src="#UBSText" rotation="0 0 0" width="0.6" height="0.3" depth="0.3" position="0.1 2 -4"
