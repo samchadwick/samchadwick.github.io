@@ -33,7 +33,6 @@
                 document.querySelector("#videoPanel").addEventListener('click', () => {
                     console.log("video clicked");
                     if (document.querySelector("#video").paused) {
-                        pauseOthers(1);
                         document.querySelector("#video").play();
                     } else {
 
@@ -42,83 +41,6 @@
                 })
             },
         });
-
-        AFRAME.registerComponent('video2', {
-            init: function () {
-                document.querySelector("#video2").pause();
-
-                document.querySelector("#videoPanel2").addEventListener('click', () => {
-                    console.log("video clicked");
-                    if (document.querySelector("#video2").paused) {
-                        pauseOthers(2);
-                        document.querySelector("#video2").play();
-                    } else {
-
-                        document.querySelector("#video2").pause();
-                    }
-                })
-            },
-        });
-
-        AFRAME.registerComponent('video3', {
-            init: function () {
-                document.querySelector("#video3").pause();
-
-                document.querySelector("#videoPanel3").addEventListener('click', () => {
-                    console.log("video clicked");
-                    if (document.querySelector("#video3").paused) {
-                        pauseOthers(3);
-                        document.querySelector("#video3").play();
-                    } else {
-
-                        document.querySelector("#video3").pause();
-                    }
-                })
-            },
-        });
-
-        AFRAME.registerComponent('video4', {
-            init: function () {
-                document.querySelector("#video4").pause();
-
-                document.querySelector("#videoPanel4").addEventListener('click', () => {
-                    console.log("video clicked");
-                    if (document.querySelector("#video4").paused) {
-                        pauseOthers(4);
-                        document.querySelector("#video4").play();
-                    } else {
-
-                        document.querySelector("#video4").pause();
-                    }
-                })
-            },
-        });
-
-        AFRAME.registerComponent('video5', {
-            init: function () {
-                document.querySelector("#video5").pause();
-
-                document.querySelector("#videoPanel5").addEventListener('click', () => {
-                    console.log("video clicked");
-                    if (document.querySelector("#video5").paused) {
-                        pauseOthers(5);
-                        document.querySelector("#video5").play();
-                    } else {
-
-                        document.querySelector("#video5").pause();
-                    }
-                })
-            },
-        });
-
-        function pauseOthers(current) {
-            for (i = 1; i < 10; i++) {
-                if (i === current) {
-                    continue;
-                }
-                document.querySelector("#video" + (i === 1 ? "" : i)).pause();
-            }
-        }
 
         AFRAME.registerComponent('clickhandler', {
             init: function () {
@@ -139,42 +61,6 @@
                 });
                 document.querySelector("#video").addEventListener("pause", () => {
                     this.el.emit("videoPaused");
-                });
-                document.querySelector("#video2").addEventListener("ended", () => {
-                    // this.el.emit("videoFinished2");
-                });
-                document.querySelector("#video2").addEventListener("play", () => {
-                    this.el.emit("videoPlayed2");
-                });
-                document.querySelector("#video2").addEventListener("pause", () => {
-                    this.el.emit("videoPaused2");
-                });
-                document.querySelector("#video3").addEventListener("ended", () => {
-                    // this.el.emit("videoFinished3");
-                });
-                document.querySelector("#video3").addEventListener("play", () => {
-                    this.el.emit("videoPlayed3");
-                });
-                document.querySelector("#video3").addEventListener("pause", () => {
-                    this.el.emit("videoPaused3");
-                });
-                document.querySelector("#video4").addEventListener("ended", () => {
-                    // this.el.emit("videoFinished4");
-                });
-                document.querySelector("#video4").addEventListener("play", () => {
-                    this.el.emit("videoPlayed4");
-                });
-                document.querySelector("#video4").addEventListener("pause", () => {
-                    this.el.emit("videoPaused4");
-                });
-                document.querySelector("#video5").addEventListener("ended", () => {
-                    // this.el.emit("videoFinished5");
-                });
-                document.querySelector("#video5").addEventListener("play", () => {
-                    this.el.emit("videoPlayed5");
-                });
-                document.querySelector("#video5").addEventListener("pause", () => {
-                    this.el.emit("videoPaused5");
                 });
             }
         });
