@@ -29,9 +29,11 @@
         AFRAME.registerComponent('logospin', {
             init: function () {
                 document.querySelector("#logo").addEventListener('click', () => {
+                    console.log("logoclicked");
                     document.querySelector("#logo").emit('startspin');
                 });
                 document.querySelector("#logo").addEventListener('mouseenter', () => {
+                    console.log("logoentered");
                     document.querySelector("#logo").emit('startspin');
                 });
             },
