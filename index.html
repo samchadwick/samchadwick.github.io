@@ -43,7 +43,10 @@
                     }
                 });
                 this.el.addEventListener('fusing', () => {
-                    console.log("fusing");
+                    if (new Date() - lastSpan > 10000) {
+                        this.el.emit('startspin');
+                        lastSpan = new Date();
+                    }
                 });
             },
         });
