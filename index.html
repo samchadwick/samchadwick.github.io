@@ -124,7 +124,7 @@
             }
         });
 
-        AFRAME.registerComponent('dynamicCursor', {
+        AFRAME.registerComponent('dynamiccursor', {
             init: function () {
                 this.el.sceneEl.addEventListener('enter-vr', function () {
                     document.body.addEventListener('click', () => {
@@ -170,7 +170,7 @@
     </a-assets>
     <a-plane src="#groundTexture" rotation="-90 0 0" position="0 -6.5 0" width="30" height="30"></a-plane>
 
-    <a-entity dynamicCursor id="cursor" camera look-controls wasd-controls movement-controls="fly: true" mouse-cursor
+    <a-entity dynamiccursor id="cursor" camera look-controls wasd-controls movement-controls="fly: true" mouse-cursor
               cursor="fuse: true; fuseTimeout: 500; rayOrigin: mouse;" raycaster="objects: .clickable"
               position="0 1.6 0"></a-entity>
 
