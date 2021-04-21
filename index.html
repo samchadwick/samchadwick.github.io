@@ -28,13 +28,13 @@
         // This is not working yet.  Mousing over the logo should cause it to spin.
         AFRAME.registerComponent('logospin', {
             init: function () {
-                document.querySelector("#logo").addEventListener('click', () => {
+                this.el.addEventListener('click', () => {
                     console.log("logoclicked");
-                    document.querySelector("#logo").emit('startspin');
+                    this.el.emit('startspin');
                 });
-                document.querySelector("#logo").addEventListener('mouseenter', () => {
+                this.el.addEventListener('mouseenter', () => {
                     console.log("logoentered");
-                    document.querySelector("#logo").emit('startspin');
+                    this.el.emit('startspin');
                 });
             },
         });
