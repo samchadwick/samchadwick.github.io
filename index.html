@@ -4,6 +4,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script>
+        let fusedObject;
         // modify the THREE.js materials to allow for model opacity
         AFRAME.registerComponent('model-opacity', {
             schema: {default: 1.0},
@@ -37,12 +38,7 @@
                     }
                 });
                 this.el.addEventListener('mouseenter', () => {
-                    if (new Date() - lastSpan > 10000) {
-                        this.el.emit('startspin');
-                        lastSpan = new Date();
-                    }
-                });
-                this.el.addEventListener('fusing', () => {
+                    fusedObject = this.el;
                     if (new Date() - lastSpan > 10000) {
                         this.el.emit('startspin');
                         lastSpan = new Date();
@@ -62,6 +58,7 @@
                     document.querySelector("#video").pause();
                 });
                 document.querySelector("#videoPanel").addEventListener('mouseenter', () => {
+                    fusedObject = this.el;
                     document.querySelector("#videoIcon1").setAttribute('visible', false);
                     document.querySelector("#video").play();
                 });
@@ -79,6 +76,7 @@
                 });
                 document.querySelector("#sample1video").addEventListener('mouseenter', () => {
                     document.querySelector("#videoIcon2").setAttribute('visible', false);
+                    fusedObject = this.el;
                     document.querySelector("#sample1").play();
                 });
             },
@@ -95,6 +93,7 @@
                 });
                 document.querySelector("#sample2video").addEventListener('mouseenter', () => {
                     document.querySelector("#videoIcon3").setAttribute('visible', false);
+                    fusedObject = this.el;
                     document.querySelector("#sample2").play();
                 });
             },
@@ -119,8 +118,13 @@
                 document.querySelector("#cta_button").addEventListener('click', () => {
                     window.open("https://www.ubs.com/global/en/investment-bank/research-academy/contact-us.html", "_blank");
                 });
+                document.querySelector("#cta_button").addEventListener('mouseenter', () => {
+                    fusedObject = this.el;
+                });
             }
         });
+
+        document.body.addEventListener('click', () => {fusedObject.emit('click')}, true);
     </script>
 
 </head>
@@ -149,7 +153,7 @@
         <video id="sample2" src="/rav1/assets/sample2.mp4" crossorigin="anonymous" playsinline controls></video>
     </a-assets>
     <a-plane src="#groundTexture" rotation="-90 0 0" position="0 -6.5 0" width="30" height="30"></a-plane>
-    <a-entity camera look-controls wasd-controls movement-controls="fly: true" mouse-cursor cursor="fuse: true; fuseTimeout: 500; rayOrigin: camera;" raycaster="objects: .clickable" position="0 1.6 0"></a-entity>
+    <a-entity camera look-controls wasd-controls movement-controls="fly: true" mouse-cursor cursor="fuse: false; rayOrigin: camera;" raycaster="objects: .clickable" position="0 1.6 0"></a-entity>
 
     <!-- Logo and Welcome -->
     <a-entity id="logo" logospin obj-model="obj:#threekeys-obj; mtl:#threekeys-mtl"
