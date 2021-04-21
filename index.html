@@ -115,10 +115,10 @@
 
         AFRAME.registerComponent('button', {
             init: function () {
-                document.querySelector("#cta_button").addEventListener('click', () => {
+                this.el.addEventListener('click', () => {
                     window.open("https://www.ubs.com/global/en/investment-bank/research-academy/contact-us.html", "_blank");
                 });
-                document.querySelector("#cta_button").addEventListener('mouseenter', () => {
+                this.el.addEventListener('mouseenter', () => {
                     fusedObject = this.el;
                 });
             }
@@ -298,7 +298,7 @@
                 animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
         </a-text>
     </a-plane>
-    <a-plane button class="clickable" id="cta_button" color="white" rotation="-90 180 0" align="center"
+    <a-plane button class="clickable" id="cta_button2" color="white" rotation="-90 180 0" align="center"
              position="0 -1 4" width="4" height="1" material="transparent: true; opacity: 0;"
              animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
         <a-text animated id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0"
@@ -306,7 +306,7 @@
                 animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
         </a-text>
     </a-plane>
-    <a-plane button class="clickable" id="cta_button" color="white" rotation="-90 90 0" align="center"
+    <a-plane button class="clickable" id="cta_button3" color="white" rotation="-90 90 0" align="center"
              position="-4 -1 0" width="4" height="1" material="transparent: true; opacity: 0;"
              animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
         <a-text animated id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0"
