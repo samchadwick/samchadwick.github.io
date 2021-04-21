@@ -42,6 +42,9 @@
                         lastSpan = new Date();
                     }
                 });
+                this.el.addEventListener('fusing', () => {
+                    console.log("fusing");
+                });
             },
         });
         // Video play and pause on-click
