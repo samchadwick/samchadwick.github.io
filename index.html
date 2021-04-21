@@ -1,0 +1,243 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://d3js.org/d3.v6.js"></script>
+        <script>
+            // modify the THREE.js materials to allow for model opacity
+            AFRAME.registerComponent('model-opacity', {
+              schema: {default: 1.0},
+              init: function () {
+                this.el.addEventListener('model-loaded', this.update.bind(this));
+              },
+              update: function () {
+                var mesh = this.el.getObject3D('mesh');
+                var data = this.data;
+                if (!mesh) { return; }
+                mesh.traverse(function (node) {
+                  if (node.isMesh) {
+                    node.material.opacity = data;
+                    node.material.transparent = data < 1.0;
+                    node.material.needsUpdate = true;
+                  }
+                });
+              }
+            });
+            // This is not working yet.  Mousing over the logo should cause it to spin.
+            AFRAME.registerComponent('logospin', {
+                init: function () {
+                    document.querySelector("#logo").addEventListener('click', () => {
+                        document.querySelector("#logo").emit('startspin');
+                    })
+                },
+            });
+            // Video play and pause on-click
+            AFRAME.registerComponent('video', {
+                init: function () {
+                    document.querySelector("#video").pause();
+                    document.querySelector("#videoPanel").addEventListener('click', () => {
+                        document.querySelector("#videoIcon1").setAttribute('visible',false);
+                        document.querySelector("#video").play();
+                    })
+                    document.querySelector("#videoPanel").addEventListener('mouseleave', () => {
+                        document.querySelector("#video").pause();
+                    })
+                },
+            });
+            AFRAME.registerComponent('sample1video', {
+                init: function () {
+                    document.querySelector("#sample1video").pause();
+                    document.querySelector("#sample1video").addEventListener('click', () => {
+                        document.querySelector("#videoIcon2").setAttribute('visible',false);
+                        document.querySelector("#sample1").play();
+                    })
+                    document.querySelector("#sample1video").addEventListener('mouseleave', () => {
+                        document.querySelector("#sample1").pause();
+                    })
+                },
+            });
+            AFRAME.registerComponent('sample2video', {
+                init: function () {
+                    document.querySelector("#sample2video").pause();
+                    document.querySelector("#sample2video").addEventListener('click', () => {
+                        document.querySelector("#videoIcon3").setAttribute('visible',false);
+                        document.querySelector("#sample2").play();
+                    })
+                    document.querySelector("#sample2video").addEventListener('mouseleave', () => {
+                        document.querySelector("#sample2").pause();
+                    })
+                },
+            });
+            AFRAME.registerComponent('profile', {
+                init: function () {
+                    this.el.addEventListener('click', (e) => {
+                        pos = this.el.getAttribute('position');
+                        this.el.setAttribute('position', pos.x +' 1.7 0.75');
+                        this.el.children[0].setAttribute('visible', true);
+                    })
+                    this.el.addEventListener('mouseleave', (e) => {
+                        pos = this.el.getAttribute('position');
+                        this.el.setAttribute('position', pos.x +' 1.7 0.8');
+                        this.el.children[0].setAttribute('visible', false);
+                    })
+                }
+            })
+
+            AFRAME.registerComponent('button', {
+                init: function () {
+                    document.querySelector("#cta_button").addEventListener('click', () => {
+                        window.open("https://www.ubs.com/global/en/investment-bank/research-academy/contact-us.html", "_blank");
+                    });
+                }
+            });
+        </script>
+
+    </head>
+    <body>
+        <div style="position: relative">
+            <p style="position: fixed; bottom: 0; width:100%; text-align: center">Move your device from side to side</p>
+        </div>
+        <a-scene>
+            <a-assets>
+                <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+                <a-asset-item src="https://cdn.aframe.io/fonts/Roboto-msdf.json"></a-asset-item>
+                <a-asset-item id="threekeys-obj" src="/rav1/assets/threekeys.obj"></a-asset-item>
+                <a-asset-item id="threekeys-mtl" src="/rav1/assets/threekeys.mtl"></a-asset-item>
+                <a-asset-item id="arrow-obj" src="/rav1/assets/arrow.obj"></a-asset-item>
+                <a-asset-item id="arrow-mtl" src="/rav1/assets/arrow.mtl"></a-asset-item>
+                <a-asset-item id="video-icon-obj" src="/rav1/assets/video-icon.obj"></a-asset-item>
+                <a-asset-item id="video-icon-mtl" src="/rav1/assets/video-icon.mtl"></a-asset-item>
+                <img id="amar" src="/rav1/profiles/amar.png">
+                <img id="courtney" src="/rav1/profiles/courtney.jpeg">
+                <img id="geoff" src="/rav1/profiles/geoff.png">
+                <img id="helen" src="/rav1/profiles/helen.jpeg">
+                <img id="neil" src="/rav1/profiles/neil.jpeg">
+                <img id="rob" src="/rav1/profiles/rob.jpeg">
+                <video id="video" src="/rav1/assets/intro_movie.mp4" crossorigin="anonymous" playsinline controls></video>
+                <video id="sample1" src="/rav1/assets/sample1.mp4" crossorigin="anonymous" playsinline controls></video>
+                <video id="sample2" src="/rav1/assets/sample2.mp4" crossorigin="anonymous" playsinline controls></video>
+            </a-assets>
+            <a-plane src="#groundTexture" rotation="-90 0 0" position="0 -6.5 0" width="30" height="30"></a-plane>
+            <a-entity cursor="fuse: true; fuseTimeout: 500; rayOrigin: mouse;" raycaster="objects: .clickable"></a-entity>
+
+            <!-- Logo and Welcome -->
+            <a-entity id="logo" logospin obj-model="obj:#threekeys-obj; mtl:#threekeys-mtl" 
+                    scale="0.01 0.018 0.01" position="0 1.5 -10" rotation="90 90 90"
+                    animation="property: rotation; to: 90 450 90; dur: 10000"
+                    light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: true">
+                        <a-animation attribute="property: rotation; to: 90 450 90; dur: 10000" begin="startspin"></a-animation>
+                    </a-entity>
+            <a-text value="Welcome to the UBS Research Academy" color="black" align="center" opacity="0"
+                    position="0 1.2 -1" scale="0.2 0.2 0.2"
+                    animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 1000;"
+                    ></a-text>
+            <a-text value="Pan right to continue" color="black" align="center" opacity="0"
+                    position="0 1.1 -1" scale="0.1 0.1 0.1"
+                    animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 2000;"
+                    ></a-text>
+            <a-entity obj-model="obj:#arrow-obj; mtl:#arrow-mtl" model-opacity="0"
+                    scale="0.5 0.5 0.5" position="-0.1 -0.1 -2.5" rotation="90 90 90"
+                    animation="property: position; from: -2 0 -2.5; to: 1 0 -2.5; dur: 3000; loop: true;"
+                    animation__text_fadein="property: model-opacity; from: 0.0; to: 1.0; dur: 500; delay: 2000;"
+                    light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: true">
+                    </a-entity>
+
+            <!-- First Video Panel -->
+            <a-video id="videoPanel" video src="#video" class="clickable" rotation="0 -90 0" width="2" height="1.125"
+                    position="2 1.7 0"></a-video>
+            <a-text value="What is UBS Research Academy?" color="black" align="center" position="2 1 0" scale="0.2 0.2 0.2" rotation="0 -90 0"></a-text>
+            <a-entity id="videoIcon1" obj-model="obj:#video-icon-obj; mtl:#video-icon-mtl" 
+                    scale="0.1 0.1 0.1" position="2 1.7 0" rotation="0 -90 0"
+                    light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: false">
+                    </a-entity>
+
+            <!-- Instructors Panel -->
+            <a-text value="Meet Your Instructors" color="black" align="center" opacity="0"
+                    position="0 2 0.8" scale="0.2 0.2 0.2" rotation="0 180 0"
+                    animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 2000;"
+                    ></a-text>
+            <a-image profile src="#geoff" class="clickable" width="0.25" height="0.25" position="0.6 1.7 0.8" rotation="0 180 0">
+                    <a-text value="Geoff Robinson FCA CFM\n
+                            Global Head of Fundamental Analytics\n
+                            Head of the UBS Research Academy\n
+                            Managing Director\n
+                            Geoff used to be a consultant. Now he is a #1-ranked analyst in Europe* and the only analyst on the UBS platform to be simultaneously top-ranked in the US*. He leads the client-facing aspect of the Fundamental Analytics team.\n
+                            He is also lead of the UBS Research Academy, responsible for the end-to-end learning delivery to clients. Geoff is the lead author of the Research Academy's book Build Better Models." wrap-count="100" color="black" align="left" position="0.05 -0.15 0.15" scale="0.15 0.15 0.15" baseline="top" visible="false"></a-text>
+            </a-image>
+            <a-image profile src="#helen" class="clickable" width="0.25" height="0.25" position="0.35 1.7 0.8" rotation="0 180 0">
+                    <a-text value="Helen Bancroft FCA\n
+                            UBS Research Academy\n
+                            Senior Instructor\n
+                            Having initially qualified as a Chartered Accountant with BDO Helen started her career in the provision of professional exam training covering business analysis and management, tax and corporate restructuring.\n
+                            Moving into bespoke training in 2007 she has since developed and run extensive courses across major financial centres to analysts at seven of the top 10 (by revenue) investment banks, private equity and hedge funds, corporates and boutique M&A firms." wrap-count="100" color="black" align="left" position="-0.2 -0.15 0.15" scale="0.15 0.15 0.15" baseline="top" visible="false"></a-text>
+            </a-image>
+            <a-image profile src="#neil" class="clickable" width="0.25" height="0.25" position="0.1 1.7 0.8" rotation="0 180 0">
+                    <a-text value="Neil Pande FCA CFA\n
+                            UBS Research Academy\n
+                            Senior Instructor\n
+                            Since graduating from Cambridge University and qualifying as a Chartered Accountant at Arthur Andersen in London, Neil has spent over 20 years as a financial training consultant, working at some of the largest financial training providers.\n
+                            At first, preparing candidates for exams such as the CFA, and becoming a CFA Charterholder himself.\n
+                            But mostly, helping graduate buy-side and sell-side equity and credit research analysts, as well as M&A, ECM, DCM and Leveraged Finance bankers, at many of the most prominent financial institutions in London, New York, Hong Kong and other global financial centres, get desk-ready for their roles." wrap-count="100" color="black" align="left" position="-0.45 -0.15 0.15" scale="0.15 0.15 0.15" baseline="top" visible="false"></a-text>
+            </a-image>
+            <a-image profile src="#rob" class="clickable" width="0.25" height="0.25" position="-0.15 1.7 0.8" rotation="0 180 0">
+                    <a-text value="Rob Morgan CFA\n
+                            UBS Research Academy\n
+                            Senior Instructor\n
+                            Rob has been leading teaching courses in the financial markets since 2002. Rob teaches a number of professional qualifications, including the Chartered Financial Analysts program (CFA). Rob also trains on technical finance courses covering general financial markets, private wealth management and asset management for a range of clients on a tailored basis to a range of audiences." wrap-count="100" color="black" align="left" position="-0.7 -0.15 0.15" scale="0.15 0.15 0.15" baseline="top" visible="false"></a-text>
+            </a-image>
+            <a-image profile src="#amar" class="clickable" width="0.25" height="0.25" position="-0.4 1.7 0.8" rotation="0 180 0">
+                    <a-text value="Amar Hamoudi Ph.D\n
+                            Global Head of New Analytic Approaches\n
+                            Executive Director\n
+                            Amar joined UBS in June 2019 in order to bring the scientific method of hypothesis driven empirical research to sell-side analysis. What are the general principles that (often, implicitly) underlie an analysts investment thesis? How can those principles, once explicated, be taken to data in order to be validated and sharpened? What questions can be answered through the considered application of statistical techniques, and – perhaps more importantly – what questions cannot?" wrap-count="100" color="black" align="left" position="-0.95 -0.15 0.15" scale="0.15 0.15 0.15" baseline="top" visible="false"></a-text>
+            </a-image>
+            <a-image profile src="#courtney" class="clickable" width="0.25" height="0.25" position="-0.65 1.7 0.8" rotation="0 180 0">
+                    <a-text value="Courtney Cook CFA\n
+                            Head of the Interactive Modelling & Visualization /  Fundamental Analytics\n
+                            Executive Director\n
+                            Courtney Cook joined UBS in March 2014 in London to create innovative products for research. He established a set of tools and techniques to efficiently create interactive simulations to supplement research notes. These products were rapidly adopted globally and continued to grow steadily with the support of his Interactive team. He also provides internal training on Excel formulas, automation and visual techniques." wrap-count="100" color="black" align="left" position="-1.2 -0.15 0.15" scale="0.15 0.15 0.15" baseline="top" visible="false"></a-text>
+            </a-image>
+
+            <!-- Second Video Panel -->
+            <a-video id="sample1video" sample1video src="#sample1" class="clickable" rotation="0 90 0" width="1.5" height="1"
+                    position="-2 1.7 0.8"></a-video>
+            <a-text value="Example 1: Dealing with Disruption" color="black" align="center" position="-2 1 0.8" scale="0.2 0.2 0.2" rotation="0 90 0"></a-text>
+            <a-video id="sample2video" sample2video src="#sample2" class="clickable" rotation="0 90 0" width="1.5" height="1"
+                    position="-2 1.7 -0.8"></a-video>
+            <a-text value="Example 2: Valuing Uncertainty" color="black" align="center" position="-2 1 -0.8" scale="0.2 0.2 0.2" rotation="0 90 0"></a-text>
+            <a-entity id="videoIcon2" obj-model="obj:#video-icon-obj; mtl:#video-icon-mtl" 
+                    scale="0.1 0.1 0.1" position="-2 1.7 0.8" rotation="0 90 0"
+                    light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: false">
+                    </a-entity>
+            <a-entity id="videoIcon3" obj-model="obj:#video-icon-obj; mtl:#video-icon-mtl" 
+                    scale="0.1 0.1 0.1" position="-2 1.7 -0.8" rotation="0 90 0"
+                    light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: false">
+                    </a-entity>
+
+            <!-- Floor Call to Action Buttons -->
+            <a-plane button class="clickable" id="cta_button" color="white" rotation="-90 -90 0" align="center"
+                     position="4 -1 0" width="4" height="1" material="transparent: true; opacity: 0;"
+                     animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                <a-text animated id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0" align="center"
+                        animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                </a-text>
+            </a-plane>
+            <a-plane button class="clickable" id="cta_button" color="white" rotation="-90 180 0" align="center"
+                     position="0 -1 4" width="4" height="1" material="transparent: true; opacity: 0;"
+                     animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                <a-text animated id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0" align="center"
+                        animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                </a-text>
+            </a-plane>
+            <a-plane button class="clickable" id="cta_button" color="white" rotation="-90 90 0" align="center"
+                     position="-4 -1 0" width="4" height="1" material="transparent: true; opacity: 0;"
+                     animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                <a-text animated id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0" align="center"
+                        animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                </a-text>
+            </a-plane>
+        </a-scene>
+    </body>
+</html>
+
