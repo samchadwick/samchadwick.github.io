@@ -77,17 +77,23 @@
 </head>
 <body>
 <a-scene>
+
     <a-assets>
         <a-asset-item id="threekeys-obj" src="/rav1/assets/threekeys.obj"></a-asset-item>
         <a-asset-item id="threekeys-mtl" src="/rav1/assets/threekeys.mtl"></a-asset-item>
+        <audio id="sound" src="/rav1/assets/intro_movie.mp3"></audio>
     </a-assets>
+    <a-sound src="#sound" autoplay></a-sound>
+    <a-sky color="#FFFFFF"></a-sky>
+    <!-- Need to find a way to turn off the camera rotation is the user is wearing a headset -->
+    <a-entity id="rig" position="0 1.6 0"
+        animation="property: rotation; to: 0 -90 0; delay: 4000; dur: 4000;"
+        animation__2="property: rotation; from: 0 -90 0; to: 0 -180 0; delay: 10000; dur: 4000;"
+        animation__3="property: rotation; from: 0 -180 0; to: 0 -270 0; delay: 18000; dur: 4000;">
+        <a-entity id="camera" camera look-controls></a-entity>
 
-        <a-entity id="rig" position="0 1.6 0"
-            animation="property: rotation; to: 0 -90 0; delay: 4000; dur: 4000;"
-            animation__2="property: rotation; from: 0 -90 0; to: 0 -180 0; delay: 10000; dur: 4000;"
-            animation__3="property: rotation; from: 0 -180 0; to: 0 -270 0; delay: 18000; dur: 4000;">
-          <a-entity id="camera" camera look-controls></a-entity>
-        </a-entity>
+    </a-entity>
+    
 
     <!-- Scene 1-->
     <a-entity id="scene1" group-opacity="opacity: 1.0"
@@ -115,7 +121,7 @@
                animation="property: position; to: 2 3 -2; dur: 3000" easing="easeInOutQuad"
                animation__color="property: material.color; from: #808080; to: #FF0000; delay: 2000; dur: 2000;"></a-box> 
         <a-box material="color: black; opacity: 1; wireframe: true" position="0.3 1.5 1" rotation="0 0 0" scale="0.2 0.2 0.2"
-               animation="property: position; to: 2 4 -5; dur: 3000; delay: 500"></a-box>
+               animation="property: position; to: 2 4 -4; dur: 3000; delay: 500"></a-box>
         <a-box material="color: black; opacity: 1; wireframe: true" position="0.3 1.5 1" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: -1 2 -1; dur: 3000; delay: 500"></a-box>
 
@@ -176,6 +182,12 @@
 
         <a-box color="grey" position="-0.2 1 -1" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: 2 1.2 2; dur: 3000; delay: 800; startEvents: start;" easing="easeInOutQuad"></a-box>
+        <a-box color="grey" position="-0.2 1 -1" rotation="0 0 0" scale="0.2 0.2 0.2"
+               animation="property: position; to: 5 1.2 3; dur: 3000; delay: 600; startEvents: start;" easing="easeInOutQuad"></a-box>
+        <a-box material="color: black; opacity: 1; wireframe: true" position="-3 1.5 -2" rotation="0 0 0" scale="1 1 1"
+               animation="property: position; to: -2 1.2 5; dur: 3000; delay: 4000; startEvents: start;" easing="easeInOutQuad"></a-box>
+        <a-box color="grey" position="-0.2 1 -1" rotation="0 0 0" scale="0.2 0.2 0.2"
+               animation="property: position; to: 5 1.2 -2; dur: 3000; delay: 600; startEvents: start;" easing="easeInOutQuad"></a-box>
         <a-box color="grey" position="-0.2 1 -1" rotation="0 0 0" scale="0.4 0.4 0.4"
                animation="property: position; to: 4 1.2 1; dur: 3000; delay: 100; startEvents: start;" easing="easeInOutQuad"
                animation__color="property: material.color; from: #808080; to: #FF0000; delay: 2000; dur: 2000; startEvents: start;" scene3end></a-box> 
@@ -188,6 +200,8 @@
                 animation="property: position; to: 0.75 1.7 4; dur: 3000; delay: 500; startEvents: start;"></a-text>
         <a-text color="black" position="-2.4 1.5 2" scale="1 1 1" rotation="0 180 0" value="obstacles"
                 animation="property: position; to: 0.05 1.7 4; dur: 3000; delay: 800; startEvents: start;"></a-text>
+
+
     </a-entity>
 
     <!-- Scene 4 -->
@@ -202,7 +216,13 @@
                   animation__2="property: rotation; to: 90 540 90; dur: 10000; delay: 10000; startEvents: start;">
         </a-entity>
 
+        <a-text color="black" position="-2 1.5 2" scale="1 1 1" rotation="0 270 0" value="At UBS Research Academy"
+                animation="property: position; to: -10 1.7 0; dur: 2000; delay: 8000; startEvents: start;"
+                ></a-text>
+
     </a-entity>
+
+
 
 </a-scene>
 </body>
