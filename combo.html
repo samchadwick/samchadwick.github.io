@@ -95,7 +95,7 @@
                     setTimeout(() => {
                         document.querySelector('#dummyLogo').emit('end');
                         document.querySelector('#dummyLogo2').emit('end');
-                    }, 4500);
+                    }, 4750);
                 });
             }
         });
@@ -448,7 +448,7 @@
     <a-entity id="dummyLogo" obj-model="obj:#threekeys-obj; mtl:#threekeys-mtl"
               scale="0.01 0.01 0.01" position="-10 1.6 0" rotation="90 180 90" model-opacity="0"
               light="type:directional; castShadow:true;" shadow="receive: true"
-              animation__show="property: model-opacity; from: 0; to: 1; dur: 1; startEvents: start; delay: 1000;"
+              animation__show="property: model-opacity; from: 0; to: 1; dur: 1; startEvents: start; delay: 1250;"
               animation__hide="property: model-opacity; from: 1; to: 0; dur: 1; startEvents: end;"
               animation__disapear="property: scale; to: 0; dur: 1; startEvents: end;"></a-entity>
     <a-entity id="dummyLogo2" logospin obj-model="obj:#threekeys-obj; mtl:#threekeys-mtl" model-opacity="0"
