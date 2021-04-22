@@ -291,7 +291,8 @@
     <!-- Scene 1-->
     <a-entity id="scene1" group-opacity="opacity: 1.0"
               animation="property: group-opacity.opacity; from: 1; to: 0.9; delay: 5500;"
-              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;">
+              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;"
+              animation__dispose="property: visible; to: false; startEvents: endFully; delay: 1000;">
 
         <a-box color="grey" position="0.2 1.5 1" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: -2 3 -5; dur: 3000" easing="easeInOutQuad"
@@ -351,7 +352,8 @@
     <a-entity id="scene2" group-opacity="opacity: 0"
               animation__start="property: group-opacity.opacity; from: 0; to: 1; startEvents: start;"
               animation__end="property: group-opacity.opacity; from: 1; to: 0.9; delay: 3000; startEvents: end;"
-              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;">
+              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;"
+              animation__dispose="property: visible; to: false; startEvents: endFully; delay: 1000;">
 
         <a-box color="grey" position="-2.2 1 -3" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: 3 1.2 -2; dur: 2500; startEvents: start;"
@@ -381,7 +383,8 @@
     <a-entity id="scene3" group-opacity="opacity: 0"
               animation__start3="property: group-opacity.opacity; from: 0; to: 1; startEvents: start;"
               animation__end3="property: group-opacity.opacity; from: 1; to: 0.9; delay: 3000; startEvents: end;"
-              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;">
+              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;"
+              animation__dispose="property: visible; to: false; startEvents: endFully; delay: 1000;">
 
         <a-box color="grey" position="-0.2 1 -1" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: 2 1.2 2; dur: 3000; delay: 800; startEvents: start;"
