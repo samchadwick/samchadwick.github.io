@@ -57,23 +57,33 @@
             update: function () {
                 var opacity = this.data.opacity;
                 var children = [].slice.call(this.el.children);
-                children
-                    .filter(function (child) {
-                        return child.hasAttribute('material') || child.hasAttribute('group-opacity');
-                    })
-                    .forEach(function (child) {
-                        child.setAttribute('material', "opacity: " + opacity);
-                        child.setAttribute('group-opacity', "opacity: " + opacity);
-                    });
-                children
-                    .filter(function (child) {
-                        return child.hasAttribute('value');
-                    })
-                    .forEach(function (child) {
-                        child.setAttribute('opacity', opacity);
-                    });
+                setChildOpacity(children, opacity);
             }
         });
+
+        function setChildOpacity(children, opacity) {
+            children
+                .filter(function (child) {
+                    return child.hasAttribute('material') || child.hasAttribute('group-opacity');
+                })
+                .forEach(function (child) {
+                    child.setAttribute('material', "opacity: " + opacity);
+                    child.setAttribute('group-opacity', "opacity: " + opacity);
+                });
+            children
+                .filter(function (child) {
+                    return child.hasAttribute('value');
+                })
+                .forEach(function (child) {
+                    child.setAttribute('opacity', opacity);
+                });
+            children.forEach((child) => {
+               if (child.children.length > 0) {
+                   setChildOpacity(children, opacity);
+               }
+            });
+        }
+
         // Rotation of logo
         AFRAME.registerComponent('logospin', {
             init: function () {
