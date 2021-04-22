@@ -88,6 +88,7 @@
                 })
                 .forEach(function (child) {
                     child.setAttribute('material', "opacity: " + opacity);
+                    child.setAttribute('model-opacity', opacity);
                     child.setAttribute('group-opacity', "opacity: " + opacity);
                 });
             children
