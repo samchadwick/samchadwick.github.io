@@ -63,9 +63,9 @@
                     scene3.emit('endFully');
                     scene2.emit('endFully');
                     scene1.emit('endFully');
+                    document.querySelector('#rig').emit('start');
                     setTimeout(() => {
                         scene5.emit('start');
-                        document.querySelector('#rig').emit('start');
                         [].slice.call(scene5.children).forEach(child => {
                             child.emit("start");
                         });
