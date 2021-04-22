@@ -413,7 +413,7 @@
     <!-- Scene 4 -->
     <a-entity id="scene4" group-opacity="opacity: 0"
               animation__start4="property: group-opacity.opacity; from: 0; to: 1; startEvents: start;"
-              animation__end4="property: group-opacity.opacity; from: 1; to: 0; delay: 16000; startEvents: end;">
+              animation__end4="property: group-opacity.opacity; from: 1; to: 0; startEvents: end;">
 
         <a-entity id="logo" obj-model="obj:#threekeys-obj; mtl:#threekeys-mtl"
                   scale="0.01 0.01 0.01" position="-10 100 0" rotation="90 0 90"
@@ -451,7 +451,7 @@
         <a-text color="red" position="4 1 -0.7" scale="1 1 1" rotation="0 90 0" value="sharpen"
                 animation="property: position; to: -3.0 0 0.8; dur: 3000; delay: 15500; startEvents: start;"
         ></a-text>
-        <a-text color="black" position="4 1 -0.7" scale="1 1 1" rotation="0 90 0" value="your investment edge"
+        <a-text color="black" scene4end position="4 1 -0.7" scale="1 1 1" rotation="0 90 0" value="your investment edge"
                 animation="property: position; to: -3.0 0 -0.05; dur: 3000; delay: 16000; startEvents: start;"
         ></a-text>
     </a-entity>
