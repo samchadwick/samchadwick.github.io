@@ -440,22 +440,22 @@
         <!-- Logo and Welcome -->
         <a-entity id="logo" logospin obj-model="obj:#threekeys-obj; mtl:#threekeys-mtl"
                   scale="0.01 0.018 0.01" position="0 1.5 -10" rotation="90 90 90" class="clickable"
-                  animation="property: rotation; to: 90 450 90; dur: 10000"
+                  animation="property: rotation; to: 90 450 90; dur: 10000; startEvents: start;"
                   animation__2="property: rotation; from: 90 90 90; to: 90 450 90; dur: 10000; startEvents: startspin;"
                   light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: true">
         </a-entity>
         <a-text value="Welcome to the UBS Research Academy" color="black" align="center" opacity="0"
                 position="0 1.2 -1" scale="0.2 0.2 0.2"
-                animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 1000;"
+                animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 1000; startEvents: start;"
         ></a-text>
         <a-text value="Pan right to continue" color="black" align="center" opacity="0"
                 position="0 1.1 -1" scale="0.1 0.1 0.1"
-                animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 2000;"
+                animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 2000; startEvents: start;"
         ></a-text>
         <a-entity obj-model="obj:#arrow-obj; mtl:#arrow-mtl" model-opacity="0"
                   scale="0.5 0.5 0.5" position="-0.1 -0.1 -2.5" rotation="90 90 90"
                   animation="property: position; from: -2 0 -2.5; to: 1 0 -2.5; dur: 3000; loop: true;"
-                  animation__text_fadein="property: model-opacity; from: 0.0; to: 1.0; dur: 500; delay: 2000;"
+                  animation__text_fadein="property: model-opacity; from: 0.0; to: 1.0; dur: 500; delay: 2000; startEvents: start;"
                   light="type:directional; castShadow:true;" position="0 0 1" shadow="receive: true">
         </a-entity>
 
@@ -472,7 +472,7 @@
         <!-- Instructors Panel -->
         <a-text value="Meet Your Instructors" color="black" align="center" opacity="0"
                 position="0 2 0.8" scale="0.2 0.2 0.2" rotation="0 180 0"
-                animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 2000;"
+                animation__text_fadein="property: text.opacity; from: 0; to: 1; dur: 1000; delay: 2000; startEvents: start;"
         ></a-text>
         <a-image profile src="#geoff" class="clickable" width="0.25" height="0.25" position="0.6 1.7 0.8"
                  rotation="0 180 0">
@@ -559,26 +559,26 @@
         <!-- Floor Call to Action Buttons -->
         <a-plane button class="clickable" id="cta_button" color="white" rotation="-90 -90 0" align="center"
                  position="4 -1 0" width="4" height="1" material="transparent: true; opacity: 0;"
-                 animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                 animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000; startEvents: start;">
             <a-text id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0"
                     align="center"
-                    animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                    animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000; startEvents: start;">
             </a-text>
         </a-plane>
         <a-plane button class="clickable" id="cta_button2" color="white" rotation="-90 180 0" align="center"
                  position="0 -1 4" width="4" height="1" material="transparent: true; opacity: 0;"
-                 animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                 animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000; startEvents: start;">
             <a-text id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0"
                     align="center"
-                    animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                    animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000; startEvents: start;">
             </a-text>
         </a-plane>
         <a-plane button class="clickable" id="cta_button3" color="white" rotation="-90 90 0" align="center"
                  position="-4 -1 0" width="4" height="1" material="transparent: true; opacity: 0;"
-                 animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                 animation__button_fadein="property: components.material.material.opacity; from: 0; to: 1; dur: 3000; delay: 10000; startEvents: start;">
             <a-text id="videoButtonText" value="Contact Us" color="red" scale="1.1 1.1 1.1" opacity="0"
                     align="center"
-                    animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000;">
+                    animation__buttontext_fadein="property: text.opacity; from: 0; to: 1; dur: 3000; delay: 10000; startEvents: start;">
             </a-text>
         </a-plane>
     </a-entity>
