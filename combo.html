@@ -64,6 +64,7 @@
                     scene2.emit('endFully');
                     scene1.emit('endFully');
                     scene5.emit('start');
+                    document.querySelector('#rig').emit('start');
                     [].slice.call(scene5.children).forEach(child => {
                         child.emit("start");
                     });
@@ -251,7 +252,8 @@
     <a-entity id="rig" position="0 1.6 0"
               animation="property: rotation; to: 0 -90 0; delay: 4000; dur: 4000;"
               animation__2="property: rotation; from: 0 -90 0; to: 0 -180 0; delay: 10000; dur: 4000;"
-              animation__3="property: rotation; from: 0 -180 0; to: 0 -270 0; delay: 18000; dur: 4000;">
+              animation__3="property: rotation; from: 0 -180 0; to: 0 -270 0; delay: 18000; dur: 4000;"
+              animation__4="property: rotation; from: 0 -270 0; to: 0 -360 0; dur: 1; startEvents: start;">
         <a-entity id="camera" camera look-controls></a-entity>
     </a-entity>
     <a-entity dynamiccursor id="cursor" camera look-controls wasd-controls movement-controls="fly: true" mouse-cursor
