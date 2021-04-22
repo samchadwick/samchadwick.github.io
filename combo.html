@@ -50,6 +50,26 @@
                 });
             }
         });
+        AFRAME.registerComponent('scene4end', {
+            init: function () {
+                var scene1 = document.querySelector('#scene1');
+                var scene2 = document.querySelector('#scene2');
+                var scene3 = document.querySelector('#scene3');
+                var scene4 = document.querySelector('#scene4');
+                this.el.addEventListener('animationcomplete', function () {
+                    var scene5 = document.querySelector('#scene5');
+                    console.log("Start Scene 5");
+                    scene4.emit('end');
+                    scene3.emit('endFully');
+                    scene2.emit('endFully');
+                    scene1.emit('endFully');
+                    scene5.emit('start');
+                    [].slice.call(scene5.children).forEach(child => {
+                        child.emit("start");
+                    });
+                });
+            }
+        });
         let fusedObject;
         // modify the THREE.js materials to allow for model opacity
         AFRAME.registerComponent('group-opacity', {
@@ -239,7 +259,8 @@
 
     <!-- Scene 1-->
     <a-entity id="scene1" group-opacity="opacity: 1.0"
-              animation="property: group-opacity.opacity; from: 1; to: 0.9; delay: 5500;">
+              animation="property: group-opacity.opacity; from: 1; to: 0.9; delay: 5500;"
+              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;">
 
         <a-box color="grey" position="0.2 1.5 1" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: -2 3 -5; dur: 3000" easing="easeInOutQuad"
@@ -298,7 +319,8 @@
     <!-- Scene 2 -->
     <a-entity id="scene2" group-opacity="opacity: 0"
               animation__start="property: group-opacity.opacity; from: 0; to: 1; startEvents: start;"
-              animation__end="property: group-opacity.opacity; from: 1; to: 0.9; delay: 3000; startEvents: end;">
+              animation__end="property: group-opacity.opacity; from: 1; to: 0.9; delay: 3000; startEvents: end;"
+              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;">
 
         <a-box color="grey" position="-2.2 1 -3" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: 3 1.2 -2; dur: 2500; startEvents: start;"
@@ -327,7 +349,8 @@
     <!-- Scene 3 -->
     <a-entity id="scene3" group-opacity="opacity: 0"
               animation__start3="property: group-opacity.opacity; from: 0; to: 1; startEvents: start;"
-              animation__end3="property: group-opacity.opacity; from: 1; to: 0.9; delay: 3000; startEvents: end;">
+              animation__end3="property: group-opacity.opacity; from: 1; to: 0.9; delay: 3000; startEvents: end;"
+              animation__clear="property: group-opacity.opacity; from: 0.9; to: 0; startEvents: endFully;">
 
         <a-box color="grey" position="-0.2 1 -1" rotation="0 0 0" scale="0.2 0.2 0.2"
                animation="property: position; to: 2 1.2 2; dur: 3000; delay: 800; startEvents: start;"
