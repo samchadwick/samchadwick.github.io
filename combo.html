@@ -84,7 +84,7 @@
         function setChildOpacity(children, opacity) {
             children
                 .filter(function (child) {
-                    return child.hasAttribute('material') || child.hasAttribute('group-opacity');
+                    return child.hasAttribute('material') || child.hasAttribute('group-opacity') || child.hasAttribute("obj-model");
                 })
                 .forEach(function (child) {
                     child.setAttribute('material', "opacity: " + opacity);
