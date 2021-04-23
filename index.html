@@ -8,6 +8,7 @@
             // Scene ends
             AFRAME.registerComponent('scene1end', {
                 init: function () {
+                    document.querySelector('#camera').setAttribute('look-controls', 'enabled', false);
                     this.el.addEventListener('animationcomplete', function () {
                         var scene2 = document.querySelector('#scene2');
                         scene2.emit('start');
@@ -76,6 +77,7 @@
                         setTimeout(() => {
                             document.querySelector('#dummyLogo').emit('end');
                             document.querySelector('#dummyLogo2').emit('end');
+                            document.querySelector('#camera').setAttribute('look-controls', 'enabled', true);
                         }, 2000);
                     });
                 }
@@ -291,9 +293,9 @@
                       animation__2="property: rotation; from: 0 -90 0; to: 0 -180 0; delay: 12000; dur: 4000;"
                       animation__3="property: rotation; from: 0 -180 0; to: 0 -270 0; delay: 18000; dur: 4000;"
                       animation__4="property: rotation; from: 0 -270 0; to: 0 -360 0; dur: 1; delay: 1100; startEvents: start;">
-                <a-entity id="camera" camera look-controls></a-entity>
+                <a-entity id="camera" camera></a-entity>
             </a-entity>
-            <a-entity dynamiccursor id="cursor" camera look-controls wasd-controls movement-controls="fly: true" mouse-cursor
+            <a-entity dynamiccursor id="cursor" movement-controls="fly: true" mouse-cursor
                       cursor="fuse: true; fuseTimeout: 500; rayOrigin: mouse;" raycaster="objects: .clickable"
                       position="0 1.6 0"></a-entity>
 
