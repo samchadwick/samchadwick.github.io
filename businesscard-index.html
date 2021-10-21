@@ -12,7 +12,7 @@
         const userID = urlParams.get('userId');
         let patternFile = undefined;
         if (userID) {
-            patternFile = '/webar/params/' + userID + '.patt';
+            patternFile = '/business-card/params/' + userID + '.patt';
         }
 
         async function getUser(source) {
@@ -111,13 +111,13 @@
 <body style='margin : 0px; overflow: scroll;'>
 <a-scene embedded arjs='patternRatio: 0.75; debugUIEnabled: false;'>
     <a-assets>
-        <img id="feature" src="/webar/assets/image001.jpeg" crossorigin="anonymous">
-        <img id="research" src="/webar/assets/image002.jpeg" crossorigin="anonymous">
-        <video id="video" src="/webar/assets/video01.mp4" loop="true" crossorigin webkit-playsinline playsinline
+        <img id="feature" src="/business-card/assets/image001.jpeg" crossorigin="anonymous">
+        <img id="research" src="/business-card/assets/image002.jpeg" crossorigin="anonymous">
+        <video id="video" src="/business-card/assets/video01.mp4" loop="true" crossorigin webkit-playsinline playsinline
                controls></video>
     </a-assets>
     <a-entity camera>
-        <a-marker type='pattern' url='/webar/pattern-happy.patt' id='marker' emitevents='true'
+        <a-marker type='pattern' url='/business-card/pattern-happy.patt' id='marker' emitevents='true'
                   cursor='rayOrigin: mouse'>
             <!-- Left Column -->
 
@@ -220,9 +220,9 @@
     async function getPrefs(userID) {
         // We cannot call to the Admin System so we will call to a static set of parameters instead
         // const id_url = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/willnnotdan/team57/master/arsite/dummy-params.json';
-        let id_url = '/webar/params/' + userID + '.json';
+        let id_url = '/business-card/params/' + userID + '.json';
         if (!userID) {
-            id_url = '/webar/params/params.json';
+            id_url = '/business-card/params/params.json';
         }
         const res = await getUser(id_url);
         console.log(res);
