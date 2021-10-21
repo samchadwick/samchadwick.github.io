@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>UBS Asset Management Insights - Panorama</title>
+    <link>https://www.ubs.com/global/en/asset-management/insights.html</link>
+    <description>Bringing you the best of our market views and asset class insights</description>
+     
+        <item>
+          <title>Mid-year outlook: Investing in a new landscape</title>
+          <link>https://www.ubs.com/global/en/asset-management/insights/panorama/mid-year.html?campID=CAAS-ActivityStream</link>
+          <media:thumbnail url='https://www.ubs.com/global/en/asset-management/insights/panorama/mid-year/_jcr_content/pagehead/mainimage.352826393.jpeg'/> 
+          <description>As we head towards a new normal, how can investors look beyond the downturn to anticipate the shape of the post-COVID-19 recovery?</description>
+          <pubDate>23 Jun 2020 16:05:00 +0000</pubDate>
+        </item>
+     
+        <item>
+          <title>Are you prepared?</title>
+          <link>https://www.ubs.com/global/en/asset-management/insights/panorama/2019/year-end/market-surprises-2020.html?campID=CAAS-ActivityStream</link>
+          <media:thumbnail url='https://www.ubs.com/global/en/asset-management/insights/panorama/2019/year-end/market-surprises-2020/_jcr_content/pagehead/mainimage.1917151192.jpeg' />
+          <description>Unexpected outcomes, potential opportunities</description>
+          <pubDate>127 Nov 2019 16:05:00 +0000</pubDate>
+        </item>
+
+        <item>
+          <title>Shock tactics</title>
+          <link>https://www.ubs.com/global/en/asset-management/insights/panorama/2019/year-end/shock-tactics.html?campID=CAAS-ActivityStream</link>
+          <media:thumbnail url='https://www.ubs.com/global/en/asset-management/insights/panorama/2019/year-end/shock-tactics/_jcr_content/pagehead/mainimage.1157959433.png' />
+          <description>Barry Gill, Head of Investments, and Suni Harford, President UBS Asset Management, introduce this edition of Panorama and explain why they believe 2020 may be a year of surprises, and how investors may address those challenges..</description>
+          <pubDate>26 Nov 2019 16:05:00 +0000</pubDate>
+        </item>
+
+  </channel>
+</rss>
