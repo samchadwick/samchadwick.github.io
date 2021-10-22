@@ -117,8 +117,7 @@
                controls></video>
     </a-assets>
     <a-entity camera>
-        <a-marker type='pattern' url='/business-card/markers/pattern-happy.patt' id='marker' emitevents='true'
-                  cursor='rayOrigin: mouse'>
+        <a-marker type='pattern' url='/business-card/markers/pattern-happy.patt' id='marker' emitevents='true' cursor='rayOrigin: mouse'>
             <!-- Left Column -->
 
             <!-- Video -->
@@ -219,7 +218,7 @@
     // Get the User Preferences
     async function getPrefs(userID) {
         // We cannot call to the Admin System so we will call to a static set of parameters instead
-        // const id_url = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/willnnotdan/team57/master/arsite/dummy-params.json';
+        
         let id_url = '/business-card/params/' + userID + '.json';
         if (!userID) {
             id_url = '/business-card/params/params.json';
@@ -258,7 +257,7 @@
         buildStories(feed);
     }
 
-    //getPrefs(userID); // Uncomment this when URL available
+    getPrefs(userID);
 </script>
 </body>
 </html>
