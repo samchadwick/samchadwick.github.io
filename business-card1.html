@@ -96,8 +96,7 @@
     <a-assets>
         <img id="feature" src="/business-card/assets/image001.jpeg" crossorigin="anonymous">
         <img id="research" src="/business-card/assets/image002.jpeg" crossorigin="anonymous">
-        <video id="video" src="/business-card/assets/video01.mp4" loop="true" crossorigin webkit-playsinline playsinline
-               controls></video>
+        <video id="video" src="/business-card/assets/video01.mp4" loop="true" crossorigin webkit-playsinline playsinline controls></video>
     </a-assets>
     <a-entity camera>
         <a-marker type='pattern' url='/business-card/markers/pattern-happy.patt' emitevents='true' cursor='rayOrigin: mouse'>
@@ -183,6 +182,7 @@
     // });
 </script>
 <script>
+    var feed = "http://feeds.bbci.co.uk/news/business/rss.xml";
     buildStories(feed);
 </script>
 </body>

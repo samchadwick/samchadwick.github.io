@@ -9,6 +9,11 @@
         // Get the URL parameter to identify the individual
         // Let's assume that the parameter is passed as the variable userID via GET in the URL, so we only need one ARsite
         const urlParams = new URLSearchParams(window.location.search);
+        const userID = urlParams.get('userId');
+        let patternFile = undefined;
+        if (userID) {
+            patternFile = '/business-card/params/' + userID + '.patt';
+        }
 
         async function getUser(source) {
             let r = fetch(source)
@@ -200,9 +205,26 @@
     // });
 </script>
 <script>
+    if (patternFile) {
+        const original = document.getElementById('marker');
+        let marker = original.cloneNode(true);
+        marker.id = "marker2";
+        marker.setAttribute("url", patternFile);
+
+        original.parentNode.insertBefore(marker, original);
+        console.log(document.getElementById('marker').parentNode);
+    }
 
     // Get the User Preferences
-    async function getPrefs() {
+    async function getPrefs(userID) {
+        // We cannot call to the Admin System so we will call to a static set of parameters instead
+        
+        /*
+        let id_url = '/business-card/params/' + userID + '.json';
+        if (!userID) {
+            id_url = '/business-card/params/params.json';
+        }
+        */
         id_url = '/business-card/params/params.json';
 
         const res = await getUser(id_url);
@@ -239,7 +261,7 @@
         buildStories(feed);
     }
 
-    getPrefs();
+    getPrefs(userID);
 </script>
 </body>
 </html>
