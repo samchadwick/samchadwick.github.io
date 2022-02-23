@@ -3,10 +3,9 @@
 /* The popup form */
 .form-popup {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  margin: 0 auto;
   max-width: 300px;
-  
   border: 3px solid #f1f1f1;
   z-index: 1;
 }
