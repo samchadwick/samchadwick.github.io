@@ -16,11 +16,10 @@ async function getData() {
 
 AFRAME.registerComponent('markers_start',{
     init: async function(){
-        console.log('Add markers to the scene');
 
         var sceneEl = document.querySelector('a-scene');
-        
         var data = await getData();
+
         if(destinationID !== null){
           // create the markers for the given destination
           const destination = data.destinations[0][destinationID];
@@ -66,11 +65,12 @@ AFRAME.registerComponent('markers_start',{
 
             }
         } else {
-         var form = document.createElement("p");
-         var text = document.createTextNode("Enter the Room Number");
-         form.appendChild(text);
-         var element = document.getElementById("destination_form");
-         element.appendChild(form);
+            // create the autocomplete
+            var rooms = [];
+            for(var i in data.destinations[0]){
+                rooms.push(i);
+            }
+            autocomplete(document.getElementById("room"), rooms);
         }
     }
 });

@@ -2,18 +2,20 @@
 <html>
   <head>
     <title> Wolfsberg Multi Markers </title>
-   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-   <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
-
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
     <script src="wolfsberg/multiMarkersName.js"></script>
+    <script src="wolfsberg/autocomplete.js"></script>
     <link rel="stylesheet" href="/wolfsberg/wolfsberg.css">
   </head>
   <body>
   <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;' id="mainForm">
       <div class="form-popup">
         <form action="/wolfsberg-client-v1.html" class="form-container">
-          <h1>Wolfsberg Navigator</h1>
-          <input type="text" placeholder="Enter Room" name="destination" required>
+          <h2>Wolfsberg Navigator</h2>
+          <div class="autocomplete" style="width:280px;">
+            <input id="room" type="text" placeholder="Enter Room" name="destination" required>
+          </div>
           <button type="submit" class="btn">Go</button>
         </form>
       </div>
@@ -21,8 +23,7 @@
   <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1; display:none;' id="navForm">
       <div class="form-popup">
         <form action="/wolfsberg-client-v1.html" class="form-container">
-          <h1>Wolfsberg Navigator</h1>
-          <p>Navigating to <div id="dest"></div></p>
+          <p>Navigating to <h3><div id="dest"></div></h3></p>
           <button type="submit" class="btn">Cancel</button>
         </form>
       </div>
@@ -37,7 +38,7 @@
       document.getElementById("mainForm").style.display = "none";
       document.getElementById("navForm").style.display = "block";
       document.getElementById("dest").innerHTML = destinationID;
-    }
+    }    
   </script>
   </body>
   </html>
