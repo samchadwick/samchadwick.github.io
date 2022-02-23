@@ -1,0 +1,49 @@
+{
+	"destinations":[
+		{
+			"325": "Room 325",
+			"27": "Room 27",
+			"400": "Room 400"
+		}
+	],
+	"markers":[
+		{
+			"1": [
+				{
+					"orientation": "floor",
+					"image": "/wolfsberg/markersPng/pattern-Individual_Blocks-1.jpg",
+					"patt": "/wolfsberg/markersPatt/pattern-Individual_Blocks-1.patt"
+				}
+			],
+			"2": [
+				{
+					"orientation": "wall",
+					"image": "/wolfsberg/markersPng/pattern-Individual_Blocks-2.jpg",
+					"patt": "/wolfsberg/markersPatt/pattern-Individual_Blocks-2.patt"
+				}
+			]
+		}	
+	],
+	"destinationMarkers":[
+		{
+			"325":[
+				{
+					"1":"left",
+					"2":"right"
+				}
+			], 
+			"27":[
+				{
+					"1":"down",
+					"2":"left"
+				}
+			], 
+			"400":[
+				{
+					"1":"up",
+					"2":"forwards"
+				}
+			]
+		}
+	]
+}
