@@ -48,14 +48,22 @@ AFRAME.registerComponent('markers_start',{
                 sceneEl.appendChild(markerEl);
 
                 //Adding text to each marker
+                /*
                 var textEl = document.createElement('a-entity');
-                
                 textEl.setAttribute('id','text');
                 textEl.setAttribute('text',{color: 'red', align: 'center', value:directions[0][k+1], width: '5.5'});
                 textEl.object3D.position.set(0, 0.7, 0);
                 textEl.object3D.rotation.set(-90, 0, 0);
-
                 markerEl.appendChild(textEl);
+                */
+
+                //Adding arrow to each marker
+                var arrowEl = document.createElement('a-image');
+                arrowEl.setAttribute('src','/wolfsberg/arrow-'+directions[0][k+1]+'.png');
+                arrowEl.object3D.position.set(0, 0.7, 0);
+                arrowEl.object3D.rotation.set(-90, 0, 0);
+                markerEl.appendChild(arrowEl);
+
             }
         } else {
          var form = document.createElement("p");
