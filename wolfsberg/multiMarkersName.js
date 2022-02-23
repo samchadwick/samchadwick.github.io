@@ -29,15 +29,15 @@ AFRAME.registerComponent('markers_start',{
           let markerCount = Object.keys(markers).length;
 
             //list of the markers
-            for(var i=1; i<markerCount; i++)
+            for(var i=1; i<markerCount+1; i++)
             {
                 var url="wolfsberg/markersPatt/pattern-Individual_Blocks-"+i+".patt";
                 markersURLArray.push(url);
                 markersNameArray.push('Marker_'+i);
-                //console.log(url);
+
             }
 
-            for(var k=0; k<markerCount-1; k++)
+            for(var k=0; k<markerCount; k++)
             {
                 var markerEl = document.createElement('a-marker');
                 markerEl.setAttribute('type','pattern');

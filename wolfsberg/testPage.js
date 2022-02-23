@@ -13,7 +13,6 @@ async function load() {
     var data = await getData();
     const markers = data.markers[0];
     let markerCount = Object.keys(markers).length;
-    console.log(markerCount);
 
     for(var i=1; i<=markerCount; i++)
     {
